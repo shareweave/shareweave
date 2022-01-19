@@ -1,7 +1,9 @@
 <script lang="ts">
-	import('../lib/user').then((user) => {
-		console.log(user);
-	});
+	if (!import.meta.env.SSR) {
+		import('../lib/user').then((user) => {
+			console.log(user);
+		});
+	}
 	let count = 0;
 </script>
 
