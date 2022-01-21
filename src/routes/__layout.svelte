@@ -1,6 +1,6 @@
-<h1>Shareweave</h1>
-
-<slot />
+<main class="m-2 font-sans">
+	<slot />
+</main>
 
 <style>
 	/* @tailwind base; */
