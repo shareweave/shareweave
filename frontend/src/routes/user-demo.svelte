@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import UserAPI from '../lib/user';
+	import UserAPI from 'shareweavejs';
+
 	let user;
 	let reactive = 0;
 	if (browser) {

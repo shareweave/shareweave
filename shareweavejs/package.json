@@ -1,0 +1,16 @@
+{
+  "name": "shareweavejs",
+  "version": "1.0.0",
+  "description": "the js library for building with shareweave",
+  "private": true,
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "build": "tsc src/index.ts",
+    "build:watch": "tsc --watch src/index.ts"
+  }
+}
