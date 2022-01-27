@@ -1,7 +1,8 @@
 {
   "private": "true",
   "workspaces": [
-    "frontend"
+    "frontend",
+    "shareweavejs"
   ],
   "scripts": {
     "lint": "prettier --write ."

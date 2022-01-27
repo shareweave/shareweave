@@ -1,0 +1,48 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn
+
+PATH: 
+  /home/ian/.local/bin:/home/ian/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.13.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/ian/Desktop/shareweave/shareweavejs/package.json: Unexpected token } in JSON at position 371
+      at JSON.parse (<anonymous>)
+      at /usr/lib/node_modules/yarn/lib/util/fs.js:755:57
+      at Generator.next (<anonymous>)
+      at step (/usr/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)
+      at /usr/lib/node_modules/yarn/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13
+
+npm manifest: 
+  {
+    "name": "shareweavejs",
+    "version": "1.0.0",
+    "description": "the js library for building with shareweave",
+    "private": true,
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
+    "license": "MIT",
+    "devDependencies": {
+      "@types/node": "^10.3.2",
+      "typescript": "^2.9.1"
+    },
+    "scripts": {
+      "build": "tsc",
+      "build:watch": "tsc --watch"
+    }
+  }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

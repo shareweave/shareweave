@@ -33,7 +33,7 @@
 	"type": "module",
 	"dependencies": {
 		"@3id/connect": "^0.2.5",
-		"@self.id/core": "^0.2.0",
+		"@datamodels/identity-profile-basic": "^0.1.2",
 		"@self.id/web": "^0.2.0",
 		"buffer": "^6.0.3",
 		"dids": "^2.4.3"
