@@ -1,28 +1,33 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import UserAPI from 'shareweavejs';
+	import Shareweave from 'shareweavejs';
+	import Layout from './__layout.svelte';
 
 	let user;
 	let reactive = 0;
 	if (browser) {
-		user = new UserAPI();
+		user = new Shareweave().user;
 	}
+	globalThis.user = user;
+
+	let userNameField = '';
+
+	let loggingIn = false;
+
 	async function login() {
+		loggingIn = true;
 		// wait for the  login
 		await user.login();
 		// then trigger reactivity
 		user = user;
 	}
-	globalThis.user = user;
-
-	let userNameField = '';
 </script>
 
 <div>
 	{#if browser}
 		<h1>User Demo</h1>
 		<button on:click={login}>Login</button>
-		<p>Is the user logged in? {user.isLoggedIn}</p>
+		<p>Is the user logged in? {loggingIn && !user.isLoggedIn ? 'waiting...' : user.isLoggedIn}</p>
 		{#if user.isLoggedIn}
 			<p>What's the user's name? {user.profile.name}</p>
 			<p>Change the user name:</p>

@@ -1,2 +1,7 @@
 import UserAPI from "./user";
-export default UserAPI;
+export default class Shareweave {
+    user;
+    constructor() {
+        this.user = new UserAPI();
+    }
+}
