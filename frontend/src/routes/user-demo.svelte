@@ -33,7 +33,7 @@
 			<p>Image:</p>
 			<img
 				alt="Avatar"
-				src={user.profile.getImage(0, 0).src.replace('ipfs://', 'https://ipfs.io/ipfs/')}
+				src={user.profile.getImage(0, 0).httpSrc }
 			/>
 			<p>Sign message:</p>
 			<form
