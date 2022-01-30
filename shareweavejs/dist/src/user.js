@@ -24,6 +24,7 @@ import { EthereumAuthProvider } from '@3id/connect';
 import { verifyMessage, splitSignature } from 'ethers/lib/utils';
 import { Buffer } from 'buffer/';
 import newGetImageFunction from './utils/getImage';
+console.log(window.ethereum);
 const ethereum = window.ethereum;
 //if (!ethereum) throw new Error('ethereum not found, please install metamask')
 export default class UserAPI {

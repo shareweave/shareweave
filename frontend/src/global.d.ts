@@ -1,3 +1,3 @@
 /// <reference types="@sveltejs/kit" />
 
-ethereum: any
+ethereum: any;
