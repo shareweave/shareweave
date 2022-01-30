@@ -2659,10 +2659,10 @@ esutils@^2.0.2:
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.3.tgz#74d2eb4de0b8da1293711910d50775b9b710ef64"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-eth-testing@^1.0.2-alpha:
-  version "1.0.2-alpha"
-  resolved "https://registry.yarnpkg.com/eth-testing/-/eth-testing-1.0.2-alpha.tgz#b2071301004ebebd32562ab2b98a24582882636d"
-  integrity sha512-us/TMBQijKM8gtvKFtDsoiYPlkTkIVpB86HW1lMGtVPTKWzQmq9pvC+jlC39tS9Of/THMtADgv4Kh6ZXj2wpQg==
+eth-testing@^1.1.0-alpha.5:
+  version "1.1.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/eth-testing/-/eth-testing-1.1.0-alpha.5.tgz#bbee094468b6d336dd81c62a61a9aeb5b916ea64"
+  integrity sha512-9+jL/uWOGJOAa2JzOwXRO3gXrv/GOnwpqFzc5Bnyn3hqBG7fpT3EN/JNS1OjbU5DbMLEq9d0V68QIQVjKC1wCA==
   dependencies:
     "@ethersproject/abi" "^5.4.0"
     "@ethersproject/contracts" "^5.4.1"
