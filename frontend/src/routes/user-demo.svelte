@@ -1,15 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/env';
 	import Shareweave from 'shareweavejs';
-	import { src_url_equal } from 'svelte/internal';
-	import Layout from './__layout.svelte';
 
 	let user;
-	let reactive = 0;
 	if (browser) {
 		user = new Shareweave().user;
 	}
-	globalThis.user = user;
+	// globalThis.user = user;
 
 	let userNameField = '';
 

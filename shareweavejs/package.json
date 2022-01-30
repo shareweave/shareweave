@@ -18,7 +18,9 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "test": "NODE_OPTIONS='--experimental-vm-modules --experimental-specifier-resolution=node' jest"
+    "test": "NODE_OPTIONS='--experimental-vm-modules --experimental-specifier-resolution=node' jest",
+    "lint": "prettier --ignore-path ../.gitignore --check --plugin-search-dir=.. . && eslint --ignore-path ../.gitignore .",
+    "format": "prettier --ignore-path ../.gitignore --write --plugin-search-dir=.. ."
   },
   "dependencies": {
     "buffer": "^6.0.3",

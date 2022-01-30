@@ -9,5 +9,8 @@
   },
   "dependencies": {
     "ethers": "^5.5.3"
+  },
+  "devDependencies": {
+    "prettier-plugin-svelte": "^2.6.0"
   }
 }
