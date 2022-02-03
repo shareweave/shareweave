@@ -23,6 +23,7 @@
     "format": "prettier --ignore-path ../.gitignore --write --plugin-search-dir=.. ."
   },
   "dependencies": {
+    "ardb": "^1.1.8",
     "buffer": "^6.0.3",
     "ethers": "^5.5.3"
   }

@@ -1,9 +1,15 @@
-import UserAPI from "./user";
+import UserAPI from "./user"
+import PostList from './posts'
 
+interface Options {
+
+}
 export default class Shareweave {
-  user: UserAPI;
+    user: UserAPI
+    posts: PostList
 
-  constructor() {
-    this.user = new UserAPI();
-  }
+    constructor(dataSet: string, options?: Options) {
+        this.user = new UserAPI()
+        this.posts = new PostList(dataSet)
+    }
 }

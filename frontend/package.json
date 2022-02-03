@@ -33,9 +33,11 @@
 	"type": "module",
 	"dependencies": {
 		"@3id/connect": "^0.2.5",
+		"@apollo/client": "^3.5.8",
 		"@datamodels/identity-profile-basic": "^0.1.2",
 		"@self.id/web": "^0.2.0",
 		"buffer": "^6.0.3",
-		"dids": "^2.4.3"
+		"dids": "^2.4.3",
+		"graphql": "^16.3.0"
 	}
 }
