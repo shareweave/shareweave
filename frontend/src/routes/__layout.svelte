@@ -3,7 +3,7 @@
 </script>
 
 <Modal>
-	<main class="font-sans m-4">
+	<main class="font-sans">
 		<slot />
 	</main>
 </Modal>

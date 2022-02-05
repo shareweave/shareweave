@@ -2,11 +2,13 @@
 	export let primary = false;
 	export let danger = false;
 	export let fullWidth = false;
+	let className;
+	export { className as class };
 </script>
 
 <button
 	on:click
-	class="my-2 mr-4 p-2 px-5 border-2 rounded-md text-white border-brand"
+	class={`my-2 mr-4 p-2 px-5 border-2 rounded-md text-white border-brand ${className}`}
 	class:w-full={fullWidth}
 	class:hover:bg-brand-light={primary}
 	class:bg-brand={primary}
