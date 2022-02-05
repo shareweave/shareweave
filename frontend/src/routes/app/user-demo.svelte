@@ -4,7 +4,7 @@
 
 	let user;
 	if (browser) {
-		user = new Shareweave().user;
+		user = new Shareweave('').user;
 	}
 	// globalThis.user = user;
 
@@ -31,10 +31,7 @@
 			<p>What's the user's name? {user.profile.name}</p>
 			<p>What's the user's address? {user.profile.address}</p>
 			<p>Image:</p>
-			<img
-				alt="Avatar"
-				src={user.profile.getImage(0, 0).httpSrc }
-			/>
+			<img alt="Avatar" src={user.profile.getImage(0, 0).httpSrc} />
 			<p>Sign message:</p>
 			<form
 				on:submit|preventDefault={async () => {
