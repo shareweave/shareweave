@@ -47,34 +47,46 @@
 
 	<img class="mt-8 mx-auto" alt="Arweave" src="static/arweave.png" />
 	<h3 class="mt-1">Built to last on Arweave</h3>
-	<p>
+	<p class="-mb-16 ">
 		Arweave enables storage of documents and applications permanently, with no access or bandwidth
 		fees.
 	</p>
 </div>
 
-<div class="bg-brand pt-5 text-white">
+<div class="bg-brand pt-8 text-white">
 	<div class="max-w-prose mx-auto text-center">
 		<h1 class="mb-2">Sounds Cool? Get Early Access.</h1>
 		<p>If you want to create amazing communities, apply below to become a beta tester.</p>
-		<form class="mx-auto max-w-fit my-8">
-			<TextInput type="email" placeholder="you@example.com" label="Email" name="email" />
-			<Button class="bg-yellow text-bold font-semibold" fullWidth={true} primary={true}>
+		<div class="mx-auto max-w-fit my-8 mb-14">
+			<Button
+				href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
+				class="bg-yellow text-bold font-semibold p-4"
+				primary={true}
+			>
 				Become a beta tester 🚀
 			</Button>
-		</form>
+		</div>
+
+		<img class="w-72 mx-auto" alt="" src="static/bike-riding.svg" />
+		<p class="my-8 mb-16">
+			Interested in using shareweave to improve engagement with your company? Maybe your app needs a
+			plugin store, theme store, awesome list, or support forum? Want to start a social application?
+			Or just have some more questions? Email <a href="mailto:ian@shareweave.com"
+				>ian@shareweave.com</a
+			>
+		</p>
 		<footer>
 			<p class="p-2">Copyright (c) Shareweave 2022</p>
-			<p class="pt-0 p-2">
-				<a href="https://twitter.com/shareweave">Twitter</a> -
-				<a href="https://github.com/shareweave">Github</a>
+			<p class="pt-0 p-6">
+				<a class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
+				<a class="mx-1" href="https://github.com/shareweave">Github</a>
 			</p>
 		</footer>
 	</div>
 </div>
 
 <style>
-	footer a {
-		@apply text-white mx-1 font-semibold;
+	.bg-brand a {
+		@apply text-white font-semibold;
 	}
 </style>
