@@ -11,14 +11,14 @@
 {#each options as option, id}
 	<span>
 		<input
-			class="hidden selector"
+			class="selector hidden"
 			on:select={() => dispatch('change', id)}
 			checked={id === selected}
 			type="radio"
 			id={id.toString()}
 			{name}
 		/>
-		<label class="rounded-3xl p-2 px-3 mx-1" for={id.toString()}>{option}</label>
+		<label class="mx-1 rounded-3xl p-2 px-3" for={id.toString()}>{option}</label>
 	</span>
 {/each}
 
