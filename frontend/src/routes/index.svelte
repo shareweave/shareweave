@@ -2,11 +2,21 @@
 	import Button from '@components/Button.svelte';
 </script>
 
+<svelte:head>
+	<title>Shareweave</title>
+</svelte:head>
 <div class="bg-background-darker pt-5 pb-36">
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="font-normal text-secondary">build communities on web3 with low code</h2>
+		<h2 class="text-secondary mb-12 font-normal">build communities on web3 with low code</h2>
+		<Button
+			href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
+			class="text-bold bg-yellow border-yellow hover:border-brand-light py-4 font-semibold"
+			primary={true}
+		>
+			Become a beta tester 🚀
+		</Button>
 	</div>
 </div>
 <div class="mx-auto max-w-prose -translate-y-32 text-center">
@@ -59,7 +69,7 @@
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
-				class="text-bold bg-yellow p-4 font-semibold"
+				class="text-bold bg-yellow py-4 font-semibold"
 				primary={true}
 			>
 				Become a beta tester 🚀
