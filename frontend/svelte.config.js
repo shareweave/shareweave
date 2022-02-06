@@ -2,6 +2,7 @@ import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 import path from "path"
 
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -13,15 +14,15 @@ const config = {
 			resolve: {
 				alias: {
 					// these are the aliases and paths to them
-					'@components': path.resolve('./src/lib/components'),
-				},
-			},
+					'@components': path.resolve('./src/lib/components')
+				}
+			}
 		}),
 		files: {
 			assets: 'static'
 		},
-		adapter: adapter(),
+		adapter: adapter()
 	}
-}
+};
 
-export default config
+export default config;

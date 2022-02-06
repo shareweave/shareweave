@@ -1,6 +1,6 @@
 import { SelfID } from "@self.id/web";
 import { EthereumAuthProvider } from "@3id/connect";
-import { verifyMessage, splitSignature } from "ethers/lib/utils";
+import { splitSignature, verifyMessage } from "ethers/lib/utils";
 import { Buffer } from "buffer/";
 import newGetImageFunction from "./utils/getImage";
 
@@ -44,8 +44,9 @@ export default class UserAPI {
   get profile() {
     /* allow for viewing but not setting profile data
      *  using a property not a promise */
-    if (!(this.#profileData && this.#addresses))
+    if (!(this.#profileData && this.#addresses)) {
       throw new Error("User not logged in");
+    }
     return {
       ...this.#profileData,
       address: this.#addresses[0],
@@ -69,8 +70,9 @@ export default class UserAPI {
     return this.#selfID?.did;
   }
   async sign(data: string) {
-    if (!(this.#profileData && this.#addresses))
+    if (!(this.#profileData && this.#addresses)) {
       throw new Error("User not logged in");
+    }
     /*  const provider = new ethers.providers.Web3Provider(ethereum)
           const signer = provider.getSigner()
           return await signer.signMessage(data) */

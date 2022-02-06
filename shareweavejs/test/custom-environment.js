@@ -1,5 +1,5 @@
 import Environment from "jest-environment-jsdom";
-import { TextEncoder, TextDecoder } from "util";
+import { TextDecoder, TextEncoder } from "util";
 import { setupEthTesting } from "eth-testing";
 
 export default class CustomTestEnvironment extends Environment {
