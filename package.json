@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "lint": "prettier --check ."
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=.. . && eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "ethers": "^5.5.3"

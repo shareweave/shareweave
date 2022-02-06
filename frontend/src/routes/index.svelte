@@ -1,6 +1,5 @@
 <script>
 	import Button from '@components/Button.svelte';
-	import TextInput from '@components/TextInput.svelte';
 </script>
 
 <div class="bg-background-darker pt-5 pb-36">
