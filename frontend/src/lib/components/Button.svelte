@@ -6,7 +6,7 @@
 
 <button
 	on:click
-	class="my-2 mr-4 p-2 px-5 border-2 rounded-md text-white border-brand"
+	class="my-2 mr-4 rounded-md border-2 border-brand p-2 px-5 text-white"
 	class:w-full={fullWidth}
 	class:hover:bg-brand-light={primary}
 	class:bg-brand={primary}

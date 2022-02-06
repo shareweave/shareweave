@@ -5,7 +5,8 @@
     "shareweavejs"
   ],
   "scripts": {
-    "lint": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "prettier --check ."
   },
   "dependencies": {
     "ethers": "^5.5.3"

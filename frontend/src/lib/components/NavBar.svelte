@@ -25,12 +25,12 @@
 	];
 </script>
 
-<nav class="row-span-2 p-3 h-full bg-background-darker">
+<nav class="row-span-2 h-full bg-background-darker p-3">
 	<h1 class="text-center">{title}</h1>
 	<ul>
 		{#each navItems as navItem}
 			<a class="no-link-style" href={navItem.link}>
-				<li class="hover:bg-darken my-1 p-2">
+				<li class="my-1 p-2 hover:bg-darken">
 					<Icon icon={`heroicons-outline:${navItem.icon}`} />
 					<span class="ml-2">{navItem.text}</span>
 				</li>
