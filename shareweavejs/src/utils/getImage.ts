@@ -21,9 +21,8 @@ export default function newGetImageFunction(image: BasicProfile["image"]) {
       if (!closestMatch.score) return (closestMatch = { score, image });
       if (closestMatch.score > score) closestMatch = { score, image };
     });
-    if (!closestMatch.image) {
+    if (!closestMatch.image)
       throw new Error("Something went wrong when choosing an image");
-    }
     return addHttpUrl(closestMatch.image);
   };
 }

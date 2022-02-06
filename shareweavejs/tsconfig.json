@@ -1,5 +1,5 @@
 {
-  "exclude": ["test"],
+  "exclude": ["test", "build"],
   "compilerOptions": {
     "declaration": true,
     "moduleResolution": "node",

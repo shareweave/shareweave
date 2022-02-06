@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapterIPFS from 'sveltejs-adapter-ipfs';
 import preprocess from 'svelte-preprocess';
 import path from 'path';
 
@@ -20,7 +20,10 @@ const config = {
 		files: {
 			assets: 'static'
 		},
-		adapter: adapter()
+		adapter: adapterIPFS({
+			removeBuiltInServiceWorkerRegistration: true,
+			injectPagesInServiceWorker: true
+		})
 	}
 };
 
