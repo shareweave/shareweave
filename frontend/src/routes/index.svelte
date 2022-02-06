@@ -3,14 +3,14 @@
 </script>
 
 <div class="bg-background-darker pt-5 pb-36">
-	<div class="max-w-prose mx-auto text-center">
-		<img class="mx-auto" alt="logo" src="/static/logo.svg" />
+	<div class="mx-auto max-w-prose text-center">
+		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="font-normal text-secondary">build communities on web3 with low code</h2>
+		<h2 class="text-secondary font-normal">build communities on web3 with low code</h2>
 	</div>
 </div>
-<div class="max-w-prose mx-auto text-center -translate-y-32">
-	<img alt="People" src="static/people.png" />
+<div class="mx-auto max-w-prose -translate-y-32 text-center">
+	<img alt="People" src="/people.png" />
 	<p>
 		Customize your decentralized community from the ground up. Fast, simple, and with all the
 		benefits of web3.
@@ -20,13 +20,13 @@
 
 	<h3 class="mt-6">✨ Easy APIs</h3>
 	<p>Ready to save months of development time?</p>
-	<img class="mx-auto" alt="Code" src="static/code.png" />
+	<img class="mx-auto" alt="Code" src="/code.png" />
 	<h3 class="mt-6">👥 Easy Moderation</h3>
 	<p>
 		Creating a quality moderation platform might not be worth it for your company. We’ve created it
 		for you.
 	</p>
-	<img class="mx-auto" alt="Moderation" src="static/moderation.png" />
+	<img class="mx-auto" alt="Moderation" src="/moderation.png" />
 
 	<h3 class="mt-6">🔒 Decentralized & censorship resistant</h3>
 	<p>
@@ -44,7 +44,7 @@
 		be open source!
 	</p>
 
-	<img class="mt-8 mx-auto" alt="Arweave" src="static/arweave.png" />
+	<img class="mx-auto mt-8" alt="Arweave" src="/arweave.png" />
 	<h3 class="mt-1">Built to last on Arweave</h3>
 	<p class="-mb-16 ">
 		Arweave enables storage of documents and applications permanently, with no access or bandwidth
@@ -53,20 +53,20 @@
 </div>
 
 <div class="bg-brand pt-8 text-white">
-	<div class="max-w-prose mx-auto text-center">
+	<div class="mx-auto max-w-prose text-center">
 		<h1 class="mb-2">Sounds Cool? Get Early Access.</h1>
 		<p>If you want to create amazing communities, apply below to become a beta tester.</p>
-		<div class="mx-auto max-w-fit my-8 mb-14">
+		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
-				class="bg-yellow text-bold font-semibold p-4"
+				class="bg-yellow text-bold p-4 font-semibold"
 				primary={true}
 			>
 				Become a beta tester 🚀
 			</Button>
 		</div>
 
-		<img class="w-72 mx-auto" alt="" src="static/bike-riding.svg" />
+		<img class="mx-auto w-72" alt="" src="/bike-riding.svg" />
 		<p class="my-8 mb-16">
 			Interested in using shareweave to improve engagement with your company? Maybe your app needs a
 			plugin store, theme store, awesome list, or support forum? Want to start a social application?
@@ -76,7 +76,7 @@
 		</p>
 		<footer>
 			<p class="p-2">Copyright (c) Shareweave 2022</p>
-			<p class="pt-0 p-6">
+			<p class="p-6 pt-0">
 				<a class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
 				<a class="mx-1" href="https://github.com/shareweave">Github</a>
 			</p>
@@ -86,6 +86,6 @@
 
 <style>
 	.bg-brand a {
-		@apply text-white font-semibold;
+		@apply font-semibold text-white;
 	}
 </style>
