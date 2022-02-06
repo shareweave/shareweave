@@ -1,6 +1,5 @@
 <script>
 	import Button from '@components/Button.svelte';
-
 	import TextInput from '@components/TextInput.svelte';
 </script>
 
@@ -67,7 +66,8 @@
 		<footer>
 			<p class="p-2">Copyright (c) Shareweave 2022</p>
 			<p class="pt-0 p-2">
-				<a href="">Twitter</a> - <a href="">Github</a> - <a href="">Discord</a>
+				<a href="https://twitter.com/shareweave">Twitter</a> -
+				<a href="https://github.com/shareweave">Github</a>
 			</p>
 		</footer>
 	</div>
