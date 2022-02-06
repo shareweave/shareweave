@@ -1,27 +1,27 @@
 @layer base {
-    h1 {
-        @apply text-3xl font-bold mt-4 mb-6;
-    }
-    h2 {
-        @apply text-2xl font-bold mb-3;
-    }
-    h3 {
-        @apply text-xl font-bold mb-2;
-    }
-    p {
-        @apply my-1;
-    }
-    a:not(.no-link-style),
-    .link {
-        @apply text-brand underline;
-    }
-    svg {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        font-size: inherit;
-        color: inherit;
-        vertical-align: -0.125em;
-        fill: currentColor;
-    }
+	h1 {
+		@apply text-3xl font-bold mt-4 mb-6;
+	}
+	h2 {
+		@apply text-2xl font-bold mb-3;
+	}
+	h3 {
+		@apply text-xl font-bold mb-2;
+	}
+	p {
+		@apply my-1;
+	}
+	a:not(.no-link-style),
+	.link {
+		@apply text-brand underline;
+	}
+	svg {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		font-size: inherit;
+		color: inherit;
+		vertical-align: -0.125em;
+		fill: currentColor;
+	}
 }
