@@ -26,6 +26,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd shareweavejs
-    - run: npm run build
-    - run: npm test
+    - run: cd shareweave && npm run build
+    - run: cd shareweave && npm test
