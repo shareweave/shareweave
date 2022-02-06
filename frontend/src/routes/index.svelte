@@ -6,7 +6,7 @@
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="text-secondary font-normal">build communities on web3 with low code</h2>
+		<h2 class="font-normal text-secondary">build communities on web3 with low code</h2>
 	</div>
 </div>
 <div class="mx-auto max-w-prose -translate-y-32 text-center">
@@ -59,7 +59,7 @@
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
-				class="bg-yellow text-bold p-4 font-semibold"
+				class="text-bold bg-yellow p-4 font-semibold"
 				primary={true}
 			>
 				Become a beta tester 🚀

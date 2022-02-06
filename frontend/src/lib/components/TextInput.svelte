@@ -6,9 +6,9 @@
 </script>
 
 <p class="my-1 text-left">
-	<label class="text-sm mb-1 block" for={name}>{label}</label>
+	<label class="mb-1 block text-sm" for={name}>{label}</label>
 	<input
-		class="text-black block p-3  border-black border-2 rounded-xl"
+		class="block rounded-xl border-2  border-black p-3 text-black"
 		{name}
 		{type}
 		{placeholder}
