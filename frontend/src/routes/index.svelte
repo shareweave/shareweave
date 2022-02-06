@@ -12,7 +12,7 @@
 		<h2 class="text-secondary mb-12 font-normal">build communities on web3 with low code</h2>
 		<Button
 			href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
-			class="text-bold bg-yellow border-yellow hover:border-brand-light py-4 font-semibold"
+			class="text-bold hover:border-brand-light py-4 font-semibold"
 			primary={true}
 		>
 			Become a beta tester 🚀
