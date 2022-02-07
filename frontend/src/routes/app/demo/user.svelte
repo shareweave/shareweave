@@ -55,3 +55,4 @@
 		{/if}
 	{/if}
 </div>
+<sharweave-login />

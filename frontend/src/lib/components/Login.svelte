@@ -20,7 +20,7 @@
 	</div>
 </div>
 
-<style lglobal ang="postcss">
+<style global lang="postcss">
 	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
