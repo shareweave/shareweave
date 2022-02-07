@@ -1,3 +1,5 @@
+<svelte:options tag={null} />
+
 <script>
 	import Button from '@components/Button.svelte';
 </script>

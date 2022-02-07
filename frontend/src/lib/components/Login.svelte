@@ -1,3 +1,5 @@
+<svelte:options tag={'shareweave-login'} />
+
 <script lang="ts">
 	import Button from './Button.svelte';
 	import TextInput from './TextInput.svelte';
@@ -17,3 +19,9 @@
 		<Button fullWidth={true}>Login With Crypto</Button>
 	</div>
 </div>
+
+<style lglobal ang="postcss">
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+</style>
