@@ -45,6 +45,7 @@ export default {
                     plugins: [
                         require("tailwindcss"),
                         require("autoprefixer"),
+                        require("postcss-import")
                     ],
                 },
             }),
@@ -56,29 +57,29 @@ export default {
         }),
         // we'll extract any component CSS out into
         // a separate file - better for performance
-        //css({ output: 'bundle.css' }),
-        css({
-            output(nestedCSS, styleNodes, bundle) {
-                const code = bundle[bundleName].code
-                const minify = false
-                let matches = code.match(
-                    minify
-                        ? /.shadowRoot.innerHTML='<style>(.*)<\/style>'/
-                        : /.shadowRoot.innerHTML = "<style>(.*)<\/style>"/,
-                )
-
-                if (matches && matches[1]) {
-                    const style = matches[1]
-
-                    bundle[bundleName].code = code.replace(style, cssChunk)
-
-                } else {
-                    throw new Error(
-                        "Couldn't shadowRoot <style> tag for injecting styles"
-                    )
-                }
-            },
-        }),
+        css({ output: 'bundle.css' }),
+        /*   css({
+               output(nestedCSS, styleNodes, bundle) {
+                   const code = bundle[bundleName].code
+                   const minify = false
+                   let matches = code.match(
+                       minify
+                           ? /.shadowRoot.innerHTML='<style>(.*)<\/style>'/
+                           : /.shadowRoot.innerHTML = "<style>(.*)<\/style>"/,
+                   )
+   
+                   if (matches && matches[1]) {
+                       const style = matches[1]
+   
+                       bundle[bundleName].code = code.replace(style, cssChunk)
+   
+                   } else {
+                       throw new Error(
+                           "Couldn't shadowRoot <style> tag for injecting styles"
+                       )
+                   }
+               },
+           }), */
 
         // If you have external dependencies installed from
         // npm, you'll most likely need these plugins. In

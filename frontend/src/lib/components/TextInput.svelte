@@ -5,6 +5,7 @@
 	export let placeholder;
 	export let label;
 	export let type = 'text';
+	export let value = '';
 </script>
 
 <p class="my-1 text-left">
@@ -14,5 +15,10 @@
 		{name}
 		{type}
 		{placeholder}
+		{value}
 	/>
 </p>
+
+<style lang="postcss">
+	@import '../webcomponents/build/output.css';
+</style>
