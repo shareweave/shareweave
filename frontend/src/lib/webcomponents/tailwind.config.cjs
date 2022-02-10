@@ -1,7 +1,5 @@
-const mainConfig = require('../../../tailwind.config.cjs')
+const mainConfig = require('../../../tailwind.config.cjs');
 module.exports = {
-    ...mainConfig,
-    content: [
-        "../**/*.svelte",
-    ],
-}
+	...mainConfig,
+	content: ['../**/*.svelte']
+};

@@ -3,12 +3,9 @@ import { EthereumAuthProvider } from "@3id/connect"
 import { splitSignature, verifyMessage } from "ethers/lib/utils"
 import { Buffer } from "buffer/"
 import newGetImageFunction from "./utils/getImage"
+import renderLoginComponent from "./login-ui"
 // @ts-expect-error
-import Login from 'frontend/src/lib/webcomponents/build'
-// @ts-expect-error
-globalThis.Login = Login
-
-if (document) document.body.innerHTML = `<shareweave-login />`
+window.lc = renderLoginComponent
 /* the schema for a basic profile, this is followed by self ID and should also be followed by
 our web2 login, see  https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic */
 import type { BasicProfile } from "@datamodels/identity-profile-basic"

@@ -19,6 +19,6 @@
 	/>
 </p>
 
-<style lang="postcss">
+<style global lang="postcss">
 	@import '../webcomponents/build/output.css';
 </style>

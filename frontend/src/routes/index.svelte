@@ -11,10 +11,10 @@
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="text-secondary mb-12 font-normal">build communities on web3 with low code</h2>
+		<h2 class="mb-12 font-normal text-secondary">build communities on web3 with low code</h2>
 		<Button
 			href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
-			class="text-bold hover:border-brand-light py-4 font-semibold"
+			class="text-bold py-4 font-semibold hover:border-brand-light"
 			primary={true}
 		>
 			Become a beta tester 🚀

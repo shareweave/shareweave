@@ -1,9 +1,7 @@
-<svelte:options tag={'shareweave-button'} />
-
 <script lang="ts">
 	export let primary = false;
 	export let danger = false;
-	export let fullwidth = false;
+	export let fullWidth = false;
 	export let href = '';
 	let className = '';
 	export { className as class };
@@ -17,7 +15,7 @@
 		${primary ? primaryStyle : ''} 
 		${!primary && !danger ? secondaryStyle : ''} 
 		${danger ? dangerStyle : ''}
-		${fullwidth ? 'w-full' : ''}
+		${fullWidth ? 'w-full' : ''}
 		${className} `
 	};
 </script>
@@ -28,6 +26,6 @@
 	<button on:click {...props}><slot /></button>
 {/if}
 
-<style lang="postcss">
+<style global lang="postcss">
 	@import '../webcomponents/build/output.css';
 </style>

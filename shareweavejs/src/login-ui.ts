@@ -1,8 +1,25 @@
-// @ts-expect-error (add types later, it's a svelte component class)
-import Login from 'frontend/src/lib/webcomponents/build'
 // @ts-expect-error
-globalThis.Login = Login
+import Login from "frontend/src/lib/webcomponents/build"
 
 export default function renderLoginComponent() {
-
+    return new Promise((resolve, reject) => {
+        const render = () => {
+            if (document.getElementById('shareweave-login-modal-container')) return
+            const modal = document.createElement('div')
+            modal.id = 'shareweave-login-modal-container'
+            const modalShadow = modal.attachShadow({ mode: 'open' })
+            const loginModal = new Login({
+                target: modalShadow
+            })
+            document.body.appendChild(modal)
+            loginModal.$set({ show: true })
+            let loggedIn
+            const off = loginModal.$on('login', (event: { detail: any }) => {
+                loggedIn = true
+                loginModal.$set({ show: false })
+                resolve(event.detail)
+            })
+        }
+        document.readyState === 'complete' ? render() : window.addEventListener("load", () => render)
+    })
 }
