@@ -5,13 +5,13 @@
 <svelte:head>
 	<title>Shareweave</title>
 </svelte:head>
-<div class="bg-background-darker pt-5 pb-36">
+<div class="bg-background-darker px-4 pt-5 pb-36">
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
 		<h2 class="text-secondary mb-12 font-normal">build communities on web3 with low code</h2>
 		<Button
-			href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
+			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
 			class="text-bold hover:border-brand-light py-4 font-semibold"
 			primary={true}
 		>
@@ -19,7 +19,7 @@
 		</Button>
 	</div>
 </div>
-<div class="mx-auto max-w-prose -translate-y-32 text-center">
+<div class="mx-auto mt-4 max-w-prose -translate-y-32 px-4 text-center">
 	<img alt="People" src="/people.png" />
 	<p>
 		Customize your decentralized community from the ground up. Fast, simple, and with all the
@@ -62,13 +62,13 @@
 	</p>
 </div>
 
-<div class="bg-brand pt-8 text-white">
+<div class="bg-brand px-4 pt-8 text-white">
 	<div class="mx-auto max-w-prose text-center">
 		<h1 class="mb-2">Sounds Cool? Get Early Access.</h1>
 		<p>If you want to create amazing communities, apply below to become a beta tester.</p>
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
-				href="https://forms.zoho.com/shareweave/form/BetaTesterApplication"
+				href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
 				class="text-bold bg-yellow py-4 font-semibold"
 				primary={true}
 			>
