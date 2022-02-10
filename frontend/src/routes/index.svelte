@@ -7,7 +7,7 @@
 </svelte:head>
 <div class="bg-background-darker px-4 pt-5 pb-36">
 	<div class="mx-auto max-w-prose text-center">
-		<img class="mx-auto" alt="logo" src="/logo.svg" />
+		<img class="mx-auto" alt="logo" src="logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
 		<h2 class="text-secondary mb-12 font-normal">content sharing with low code</h2>
 		<Button
@@ -20,7 +20,7 @@
 	</div>
 </div>
 <div class="mx-auto mt-4 max-w-prose -translate-y-32 px-4 text-center">
-	<img alt="People" src="/people.png" />
+	<img alt="People" src="people.png" />
 	<p>
 		Customize your decentralized community from the ground up. Fast, simple, and with all the
 		benefits of web3.
@@ -30,13 +30,13 @@
 
 	<h3 class="mt-6">✨ Easy APIs</h3>
 	<p>Ready to save months of development time?</p>
-	<img class="mx-auto" alt="Code" src="/code.png" />
+	<img class="mx-auto" alt="Code" src="code.png" />
 	<h3 class="mt-6">👥 Easy Moderation</h3>
 	<p>
 		Creating a quality moderation platform might not be worth it for your company. We’ve created it
 		for you.
 	</p>
-	<img class="mx-auto" alt="Moderation" src="/moderation.png" />
+	<img class="mx-auto" alt="Moderation" src="moderation.png" />
 
 	<h3 class="mt-6">🔒 Decentralized & censorship resistant</h3>
 	<p>
@@ -54,7 +54,7 @@
 		be open source!
 	</p>
 
-	<img class="mx-auto mt-8" alt="Arweave" src="/arweave.png" />
+	<img class="mx-auto mt-8" alt="Arweave" src="arweave.png" />
 	<h3 class="mt-1">Built to last on Arweave</h3>
 	<p class="-mb-16 ">
 		Arweave enables storage of documents and applications permanently, with no access or bandwidth
@@ -76,7 +76,7 @@
 			</Button>
 		</div>
 
-		<img class="mx-auto w-72" alt="" src="/bike-riding.svg" />
+		<img class="mx-auto w-72" alt="" src="bike-riding.svg" />
 		<p class="my-8 mb-16">
 			Interested in using shareweave to improve engagement with your company? Maybe your app needs a
 			plugin store, theme store, awesome list, or support forum? Want to start a social application?
