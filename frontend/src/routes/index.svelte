@@ -9,7 +9,7 @@
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="text-secondary mb-12 font-normal">build communities on web3 with low code</h2>
+		<h2 class="text-secondary mb-12 font-normal">content sharing on web3 with low code</h2>
 		<Button
 			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
 			class="text-bold hover:border-brand-light py-4 font-semibold"
