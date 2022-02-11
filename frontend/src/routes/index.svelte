@@ -5,20 +5,22 @@
 <svelte:head>
 	<title>Shareweave</title>
 </svelte:head>
+
 <div class="bg-background-darker px-4 pt-5 pb-36">
 	<div class="mx-auto max-w-prose text-center">
 		<img class="mx-auto" alt="logo" src="/logo.svg" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="text-secondary mb-12 font-normal">content sharing with low code</h2>
+		<h2 class="mb-12 font-normal text-secondary">content sharing with low code</h2>
 		<Button
 			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-			class="text-bold hover:border-brand-light py-4 font-semibold"
+			class="text-bold py-4 font-semibold hover:border-brand-light"
 			primary={true}
 		>
 			Become a beta tester 🚀
 		</Button>
 	</div>
 </div>
+
 <div class="mx-auto mt-4 max-w-prose -translate-y-32 px-4 text-center">
 	<img alt="People" src="/people.png" />
 	<p>
