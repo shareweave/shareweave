@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "name": "backend-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write '**/*.{js,css,json,md}'"
+  },
+  "author": "Eliaz Bobadilla <eliaz.bobadilladev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "arweave": "^1.10.23"
+  }
+}
