@@ -6,7 +6,11 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=.. . && eslint --ignore-path .gitignore ."
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=.. . && eslint --ignore-path .gitignore .",
+    "test": "cd shareweavejs && yarn test",
+    "test:watch": "cd shareweavejs && yarn test --watch",
+    "build": "cd frontend && yarn build-webcomponents && cd ../shareweavejs && yarn build && cd ../frontend && svelte-kit build",
+    "dev": "cd frontend && yarn build-webcomponents:watch & cd shareweavejs && yarn build:watch & cd frontend && svelte-kit dev"
   },
   "dependencies": {
     "ethers": "^5.5.3"
