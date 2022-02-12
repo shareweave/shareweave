@@ -1,0 +1,28 @@
+@tailwind base;
+@layer base {
+	h1 {
+		@apply mt-4 mb-6 text-3xl font-bold;
+	}
+	h2 {
+		@apply mb-3 text-2xl font-bold;
+	}
+	h3 {
+		@apply mb-2 text-xl font-bold;
+	}
+	p {
+		@apply my-1;
+	}
+	a:not(.no-link-style),
+	.link {
+		@apply text-brand underline;
+	}
+	svg {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		font-size: inherit;
+		color: inherit;
+		vertical-align: -0.125em;
+		fill: currentColor;
+	}
+}

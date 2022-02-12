@@ -5,15 +5,15 @@ import path from 'path';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess(),
-
+	customElement: true,
 	kit: {
-		vite: () => ({
+		vite: {
 			resolve: {
 				alias: {
 					'@components': path.resolve('./src/lib/components')
 				}
 			}
-		}),
+		},
 		files: {
 			assets: 'static'
 		},
