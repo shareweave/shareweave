@@ -5,7 +5,6 @@ import { Buffer } from "buffer/"
 import newGetImageFunction from "../utils/getImage"
 import renderLoginComponent from "./login-ui"
 import defaultProfile from "./default-profile"
-console.log(defaultProfile)
 /* the schema for a basic profile, this is followed by self ID and should also be followed by
 our web2 login, see  https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic */
 import type { BasicProfile } from "@datamodels/identity-profile-basic"
@@ -20,6 +19,7 @@ export default class UserAPI {
   // this function must not prompt the user if already logged in:
   async login() {
     this.ethereum = (await renderLoginComponent()).web3Provider
+    console.log(this.ethereum)
     // The following assumes there is an injected `ethereum` provider
     this.#addresses = (await this.ethereum.request({
       method: "eth_requestAccounts",
@@ -30,6 +30,7 @@ export default class UserAPI {
       ceramic: "testnet-clay",
       connectNetwork: "testnet-clay",
     })
+    console.log(self)
     this.#profileData = {
       ...defaultProfile,
       ...(await self.get("basicProfile")),

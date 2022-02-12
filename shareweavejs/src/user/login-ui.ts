@@ -1,6 +1,5 @@
 // @ts-expect-error svelte client-side component, should add types later
-import Login from "frontend/src/lib/webcomponents/build"
-
+import Login from "frontend/src/lib/webcomponents/build/index.js"
 interface LoginResult {
   web3Provider: any
 }
@@ -17,11 +16,13 @@ export default function renderLoginComponent(): Promise<LoginResult> {
       document.body.appendChild(modal)
       loginModal.$set({ show: true })
       let loggedIn
-      const off = loginModal.$on("login", (event: { detail: any }) => {
+      const callback = (event: { detail: any }) => {
         loggedIn = true
         loginModal.$set({ show: false })
         resolve(event.detail)
-      })
+      }
+      if (true) callback({ detail: { web3Provider: window.ethereum } })
+      const off = loginModal.$on("login", callback)
     }
     document.readyState === "complete"
       ? render()

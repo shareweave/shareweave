@@ -1,9 +1,9 @@
-import svelte from 'rollup-plugin-svelte';
-import sveltePreprocess from 'svelte-preprocess';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
+import svelte from 'rollup-plugin-svelte'
+import sveltePreprocess from 'svelte-preprocess'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !process.env.ROLLUP_WATCH
 
 export default {
 	input: 'main.js',
@@ -84,4 +84,4 @@ export default {
 	watch: {
 		clearScreen: false
 	}
-};
+}
