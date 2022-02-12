@@ -1,8 +1,5 @@
 {
-  "exclude": [
-    "test",
-    "build"
-  ],
+  "exclude": ["test", "build"],
   "compilerOptions": {
     "declaration": true,
     "allowJs": true,

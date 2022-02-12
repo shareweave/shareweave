@@ -2,10 +2,7 @@
 	"compilerOptions": {
 		"moduleResolution": "node",
 		"module": "esnext",
-		"lib": [
-			"es2020",
-			"DOM"
-		],
+		"lib": ["es2020", "DOM"],
 		"target": "es2020",
 		/**
 			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
@@ -26,15 +23,9 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib": [
-				"src/lib"
-			],
-			"$lib/*": [
-				"src/lib/*"
-			],
-			"@components/*": [
-				"src/lib/components*"
-			]
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"],
+			"@components/*": ["src/lib/components*"]
 		}
 	},
 	"include": [
