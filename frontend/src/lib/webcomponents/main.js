@@ -1,2 +1,2 @@
-import Login from '../components/Login.svelte';
-export default Login;
+import Login from '../components/Login.svelte'
+export { Login }
