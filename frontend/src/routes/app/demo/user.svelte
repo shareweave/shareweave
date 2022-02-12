@@ -2,34 +2,60 @@
 	import { browser } from '$app/env';
 	import Shareweave from 'shareweavejs';
 
+<<<<<<< HEAD
 	let user = new Shareweave('').user;
 	globalThis.user = user;
+=======
+	let user;
+	if (browser) {
+		user = new Shareweave('').user;
+	}
+	// globalThis.user = user;
+>>>>>>> master
 
 	let userNameField = '';
 
 	let loggingIn = false;
+<<<<<<< HEAD
 	let something;
+=======
+
+>>>>>>> master
 	async function login() {
 		loggingIn = true;
 		// wait for the  login
 		await user.login();
 		// then trigger reactivity
 		user = user;
+<<<<<<< HEAD
 		console.log(user);
+=======
+>>>>>>> master
 	}
 	let messageToSign = '';
 </script>
 
+<<<<<<< HEAD
 <div>
 	{#if browser}
 		<h1>User Demo</h1>
 		<button disabled={loggingIn} on:click={login}>Login</button>
+=======
+<svelte:window on:load={login} />
+<div>
+	{#if browser}
+		<h1>User Demo</h1>
+>>>>>>> master
 		<p>Is the user logged in? {loggingIn && !user.isLoggedIn ? 'waiting...' : user.isLoggedIn}</p>
 		{#if user.isLoggedIn}
 			<p>What's the user's name? {user.profile.name}</p>
 			<p>What's the user's address? {user.profile.address}</p>
 			<p>Image:</p>
+<<<<<<< HEAD
 			<!--	<img alt="Avatar" src={user.profile.getImage(0, 0).httpSrc} /> -->
+=======
+			<img alt="Avatar" src={user.profile.getImage(0, 0).httpSrc} />
+>>>>>>> master
 			<p>Sign message:</p>
 			<form
 				on:submit|preventDefault={async () => {
@@ -53,3 +79,7 @@
 		{/if}
 	{/if}
 </div>
+<<<<<<< HEAD
+=======
+<sharweave-login />
+>>>>>>> master

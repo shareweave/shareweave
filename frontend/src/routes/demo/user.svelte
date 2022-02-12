@@ -22,10 +22,10 @@
 	let messageToSign = '';
 </script>
 
+<svelte:window on:load={login} />
 <div>
 	{#if browser}
 		<h1>User Demo</h1>
-		<button on:click={login}>Login</button>
 		<p>Is the user logged in? {loggingIn && !user.isLoggedIn ? 'waiting...' : user.isLoggedIn}</p>
 		{#if user.isLoggedIn}
 			<p>What's the user's name? {user.profile.name}</p>
@@ -55,3 +55,4 @@
 		{/if}
 	{/if}
 </div>
+<sharweave-login />

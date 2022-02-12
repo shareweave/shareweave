@@ -5,7 +5,8 @@
     "shareweavejs"
   ],
   "scripts": {
-    "lint": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=.. . && eslint --ignore-path .gitignore ."
   },
   "dependencies": {
     "ethers": "^5.5.3"

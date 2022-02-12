@@ -1,9 +1,17 @@
-<main class="m-2 font-sans">
-	<slot />
-</main>
+<script>
+	import Modal from 'svelte-simple-modal';
+</script>
+
+<Modal>
+	<main class="font-sans">
+		<slot />
+	</main>
+</Modal>
 
 <style>
-	/* @tailwind base; */
+	@import url('./typography.css');
+
+	@tailwind base;
 	@tailwind components;
 	@tailwind utilities;
 </style>
