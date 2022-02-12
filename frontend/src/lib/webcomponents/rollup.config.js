@@ -1,33 +1,33 @@
-import svelte from 'rollup-plugin-svelte';
-import sveltePreprocess from 'svelte-preprocess';
-import commonjs from '@rollup/plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import livereload from 'rollup-plugin-livereload';
+import svelte from 'rollup-plugin-svelte'
+import sveltePreprocess from 'svelte-preprocess'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
+import livereload from 'rollup-plugin-livereload'
 // import { terser } from 'rollup-plugin-terser'
-import css from 'rollup-plugin-import-css';
-import embedCSS from 'rollup-plugin-embed-css';
+import css from 'rollup-plugin-import-css'
+import embedCSS from 'rollup-plugin-embed-css'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = !process.env.ROLLUP_WATCH
 
 function serve() {
-	let server;
+	let server
 
 	function toExit() {
-		if (server) server.kill(0);
+		if (server) server.kill(0)
 	}
 
 	return {
 		writeBundle() {
-			if (server) return;
+			if (server) return
 			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
 				stdio: ['ignore', 'inherit', 'inherit'],
 				shell: true
-			});
+			})
 
-			process.on('SIGTERM', toExit);
-			process.on('exit', toExit);
+			process.on('SIGTERM', toExit)
+			process.on('exit', toExit)
 		}
-	};
+	}
 }
 
 export default {
@@ -60,27 +60,27 @@ export default {
 		// a separate file - better for performance
 		// css({ output: 'bundle.css' }),
 		/*   css({
-               output(nestedCSS, styleNodes, bundle) {
-                   const code = bundle[bundleName].code
-                   const minify = false
-                   let matches = code.match(
-                       minify
-                           ? /.shadowRoot.innerHTML='<style>(.*)<\/style>'/
-                           : /.shadowRoot.innerHTML = "<style>(.*)<\/style>"/,
-                   )
+			   output(nestedCSS, styleNodes, bundle) {
+				   const code = bundle[bundleName].code
+				   const minify = false
+				   let matches = code.match(
+					   minify
+						   ? /.shadowRoot.innerHTML='<style>(.*)<\/style>'/
+						   : /.shadowRoot.innerHTML = "<style>(.*)<\/style>"/,
+				   )
    
-                   if (matches && matches[1]) {
-                       const style = matches[1]
+				   if (matches && matches[1]) {
+					   const style = matches[1]
    
-                       bundle[bundleName].code = code.replace(style, cssChunk)
+					   bundle[bundleName].code = code.replace(style, cssChunk)
    
-                   } else {
-                       throw new Error(
-                           "Couldn't shadowRoot <style> tag for injecting styles"
-                       )
-                   }
-               },
-           }), */
+				   } else {
+					   throw new Error(
+						   "Couldn't shadowRoot <style> tag for injecting styles"
+					   )
+				   }
+			   },
+		   }), */
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
@@ -96,11 +96,11 @@ export default {
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
-		!production && serve(),
+		//	!production && serve(),
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
-		!production && livereload('public')
+		//!production && livereload('public')
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
@@ -109,4 +109,4 @@ export default {
 	watch: {
 		clearScreen: false
 	}
-};
+}

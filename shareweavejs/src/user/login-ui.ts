@@ -1,7 +1,10 @@
 // @ts-expect-error
-import Login from "frontend/src/lib/webcomponents/build"
+import { Login } from "frontend/src/lib/webcomponents/build"
 
-export default function renderLoginComponent() {
+interface LoginResult {
+    web3Provider: any,
+}
+export default function renderLoginComponent(): Promise<LoginResult> {
     return new Promise((resolve, reject) => {
         const render = () => {
             if (document.getElementById('shareweave-login-modal-container')) return

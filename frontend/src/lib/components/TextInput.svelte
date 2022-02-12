@@ -1,5 +1,3 @@
-<svelte:options tag={'shareweave-text-input'} />
-
 <script lang="ts">
 	export let name;
 	export let placeholder;

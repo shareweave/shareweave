@@ -1,5 +1,3 @@
-<svelte:options tag={'shareweave-login'} />
-
 <script lang="ts">
 	export let show = false;
 	import Button from './Button.svelte';
@@ -10,7 +8,6 @@
 
 	let email = '';
 	function login() {
-		console.log('login');
 		// @ts-expect-error
 		if (!window.ethereum) throw new Error('window.ethereum required for now, install metamask');
 		dispatch('login', {
@@ -20,7 +17,7 @@
 	}
 </script>
 
-<div id="shareweave-login-modal" class={show ? '' : 'none'} tabindex="-1">
+<div id="shareweave-login-modal" class:hidden={show === false} tabindex="-1">
 	<div
 		id="shareweave-login"
 		class="mx-auto max-w-fit rounded-xl bg-white p-3"
@@ -31,7 +28,8 @@
 			<span />
 			<h1 class="text-center">👋 Welcome Back</h1>
 			<span class="-mt-3 flex items-center justify-end px-4 text-right text-3xl">
-				<button>&#xd7;</button>
+				<!--  cancel login tbd 
+				<button>&#xd7; </button> -->
 			</span>
 		</div>
 		<p class="my-3 text-center">
@@ -61,5 +59,9 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	/* stop the styles above from overriding tailwind hidden */
+	#shareweave-login-modal.hidden {
+		display: none;
 	}
 </style>
