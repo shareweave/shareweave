@@ -1,5 +1,5 @@
 // @ts-expect-error svelte client-side component, should add types later
-import Login from "frontend/src/lib/webcomponents/build/index.js"
+import { Login } from "frontend/src/lib/webcomponents/build/index.js"
 interface LoginResult {
   web3Provider: any
 }

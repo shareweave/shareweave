@@ -1,7 +1,11 @@
 {
-  "exclude": ["test", "build"],
+  "exclude": [
+    "test",
+    "build"
+  ],
   "compilerOptions": {
     "declaration": true,
+    "allowJs": true,
     "moduleResolution": "node",
     "outDir": "build",
     "target": "es6" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,

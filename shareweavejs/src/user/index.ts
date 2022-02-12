@@ -19,23 +19,19 @@ export default class UserAPI {
   // this function must not prompt the user if already logged in:
   async login() {
     this.ethereum = (await renderLoginComponent()).web3Provider
-    console.log(this.ethereum)
     // The following assumes there is an injected `ethereum` provider
     this.#addresses = (await this.ethereum.request({
       method: "eth_requestAccounts",
     })) as [string]
-
     const self = await SelfID.authenticate({
       authProvider: new EthereumAuthProvider(this.ethereum, this.#addresses[0]),
       ceramic: "testnet-clay",
       connectNetwork: "testnet-clay",
     })
-    console.log(self)
     this.#profileData = {
       ...defaultProfile,
       ...(await self.get("basicProfile")),
     }
-    console.log("hello", this.#profileData)
     this.#selfID = self
     // debug
     // window.selfID = self

@@ -6880,10 +6880,10 @@ etag@~1.8.1:
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.8.1.tgz#41ae2eeb65efa62268aebfea83ac7d79299b0887"
   integrity sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=
 
-eth-testing@^1.1.0-alpha.5:
-  version "1.1.0-alpha.5"
-  resolved "https://registry.yarnpkg.com/eth-testing/-/eth-testing-1.1.0-alpha.5.tgz#bbee094468b6d336dd81c62a61a9aeb5b916ea64"
-  integrity sha512-9+jL/uWOGJOAa2JzOwXRO3gXrv/GOnwpqFzc5Bnyn3hqBG7fpT3EN/JNS1OjbU5DbMLEq9d0V68QIQVjKC1wCA==
+eth-testing@^1.1.0-alpha.6:
+  version "1.1.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/eth-testing/-/eth-testing-1.1.0-alpha.6.tgz#798a7dc6ce4a969c78ccf7c24b45ae151741cdf8"
+  integrity sha512-k12ZC8li12snBVoYSdvm7ZE8fGZMtJgM8KnE/v9U/CTTGV5TZavbELT36PhDD8gbC9h0+w2khP1JE0/p7IRBvQ==
   dependencies:
     "@ethersproject/abi" "^5.4.0"
     "@ethersproject/contracts" "^5.4.1"

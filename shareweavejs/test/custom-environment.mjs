@@ -14,10 +14,10 @@ export default class CustomTestEnvironment extends Environment {
         providerType: "MetaMask",
       })
       testingUtils.mockChainId("0x1")
-      testingUtils.mockAccounts(["0x138071e4e810f34265bd833be9c5dd96f01bd8a5"])
-      testingUtils.lowLevel.mockRequest("eth_requestAccounts", [
-        "0x138071e4e810f34265bd833be9c5dd96f01bd8a5",
-      ])
+      testingUtils.mockRequestAccounts(
+        ["0xf61B443A155b07D2b2cAeA2d99715dC84E839EEf"],
+        { chainId: "0x1" }
+      )
       this.global.ethereum = provider
     }
   }
