@@ -8,10 +8,10 @@
 
 	let email = '';
 	function login() {
-		// @ts-expect-error
+		// @ts-expect-error metamask does not have types rn
 		if (!window.ethereum) throw new Error('window.ethereum required for now, install metamask');
 		dispatch('login', {
-			// @ts-expect-error
+			// @ts-expect-error metamask does not have types rn
 			web3Provider: window.ethereum
 		});
 	}

@@ -9,14 +9,14 @@ const config = {
 	preprocess: preprocess(),
 	customElement: true,
 	kit: {
-		vite: () => ({
+		vite: {
 			resolve: {
 				alias: {
 					// these are the aliases and paths to them
 					'@components': path.resolve('./src/lib/components')
 				}
 			}
-		}),
+		},
 		files: {
 			assets: 'static'
 		},

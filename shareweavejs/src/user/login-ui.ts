@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-expect-error svelte client-side component, should add types later
 import { Login } from "frontend/src/lib/webcomponents/build";
 
 interface LoginResult {
