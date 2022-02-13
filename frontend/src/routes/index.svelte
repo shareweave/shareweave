@@ -10,12 +10,12 @@
 
 <div class="bg-background-darker px-4 pt-5 pb-36">
 	<div class="mx-auto max-w-prose text-center">
-		<img class="mx-auto" alt="logo" src="logo.svg" />
+		<img class="mx-auto w-20" alt="logo" src="logo-unfilled.png" />
 		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="mb-12 font-normal text-secondary">content sharing with low code</h2>
+		<h2 class="text-secondary mb-12 font-normal">content sharing with low code</h2>
 		<Button
 			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-			class="text-bold py-4 font-semibold hover:border-brand-light"
+			class="text-bold hover:border-brand-light !py-4 font-semibold"
 			primary={true}
 		>
 			Become a beta tester 🚀
@@ -73,7 +73,7 @@
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-				class="text-bold bg-yellow py-4 font-semibold"
+				class="text-bold !bg-bright !py-4 font-semibold hover:brightness-110"
 				primary={true}
 			>
 				Become a beta tester 🚀

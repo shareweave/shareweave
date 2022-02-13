@@ -1,9 +1,10 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
 	content: ['./src/**/*.html', './src/**/*.svelte'],
 	theme: {
 		colors: {
-			brand: '#47A8BD',
+			brand: '#2B9BD9', // or #47A8BD
+			bright: '#FC6767',
 			'brand-light': '#6BD1E7',
 			'background-darker': '#E5E7EB',
 			yellow: '#EAB308',
@@ -22,4 +23,4 @@ module.exports = {
 		}
 	},
 	plugins: []
-};
+}
