@@ -1,12 +1,6 @@
-<script>
-	import Modal from 'svelte-simple-modal';
-</script>
-
-<Modal>
-	<main class="font-sans">
-		<slot />
-	</main>
-</Modal>
+<main class="font-sans">
+	<slot />
+</main>
 
 <style>
 	@import url('./typography.css');
