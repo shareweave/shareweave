@@ -24,6 +24,12 @@ export default class PostItem {
         const data: Reactions = {}
         return data
     }
+    async comment() {
+
+    }
+    async addReaction() {
+
+    }
     async tag(name: string) {
         return '' // value
     }

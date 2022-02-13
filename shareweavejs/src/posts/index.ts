@@ -15,7 +15,7 @@ export default class PostList {
     constructor(dataSet: string) {
         this.dataSet = dataSet
     }
-    async query(params: Params) {
+    async query(params: Params, cursor: string) {
         // @ts-expect-error
         const ardb = new ArDB(window.Arweave.init({
             host: 'arweave.net',
@@ -24,9 +24,8 @@ export default class PostList {
         }))
         const result = await ardb.search().tag('Data-Set', this.dataSet).tags(params.tags || []).limit(params.max || 100).find()
         console.log(result)
-
-
+        const c = ''
         const data: PostItem[] = []
-        return { data, cursor: '' }
+        return { data, cursor: c, queryAfter: (qParams: Params = params) => { this.query(qParams, c) } }
     }
 }
