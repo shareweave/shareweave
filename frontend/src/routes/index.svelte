@@ -91,8 +91,9 @@
 		<footer>
 			<p class="p-2">Copyright (c) Shareweave 2022</p>
 			<p class="p-6 pt-0">
-				<a class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
-				<a class="mx-1" href="https://github.com/shareweave">Github</a>
+				<a target="_blank" class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
+				<a target="_blank" class="mx-1" href="https://github.com/shareweave">Github</a> -
+				<a target="_blank" class="mx-1" href="https://discord.gg/xD7EeYjgNc">Discord</a>
 			</p>
 		</footer>
 	</div>
