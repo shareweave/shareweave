@@ -15,7 +15,7 @@
 		<h2 class="mb-12 font-normal">the easiest way to implement content sharing</h2>
 		<Button
 			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-			class="text-bold border-none bg-gradient-to-r from-brand-bright to-brand !p-3 !px-8 font-semibold hover:shadow hover:shadow-brand"
+			class="text-bold from-brand-bright to-brand hover:shadow-brand border-none bg-gradient-to-r !p-3 !px-8 font-semibold hover:shadow"
 			primary={true}
 		>
 			Become a beta tester 🚀
@@ -66,14 +66,16 @@
 	</p>
 </div>
 
-<div class="bg-brand px-4 pt-8 text-white">
+<div class="last-cta from-brand-bright to-brand -mb-1 bg-gradient-to-b px-4 pt-8 text-white">
 	<div class="mx-auto max-w-prose text-center">
 		<h1 class="mb-2">Sounds Cool? Get Early Access.</h1>
-		<p>If you want to create amazing communities, apply below to become a beta tester.</p>
+		<p class="font-semibold">
+			If you want to create amazing communities, apply below to become a beta tester.
+		</p>
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-				class="text-bold border-none bg-gradient-to-r from-brand-bright to-brand !p-3 !px-8 font-semibold hover:shadow hover:shadow-brand"
+				class="text-bold border-none !bg-black !p-3 !px-8 font-semibold hover:shadow hover:brightness-125"
 				primary={true}
 			>
 				Become a beta tester 🚀
@@ -100,7 +102,7 @@
 </div>
 
 <style>
-	.bg-brand a {
+	.last-cta a {
 		@apply font-semibold text-white;
 	}
 </style>
