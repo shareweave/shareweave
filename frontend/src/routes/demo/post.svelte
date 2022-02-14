@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Shareweave from 'shareweavejs';
+	import Shareweave from 'shareweave';
 	const posts = new Shareweave('shareweave-demo-blog').posts;
 	globalThis.posts = posts;
 </script>

@@ -1,7 +1,7 @@
 import { SelfID } from "@self.id/web"
 import { EthereumAuthProvider } from "@3id/connect"
 import { splitSignature, verifyMessage } from "ethers/lib/utils.js"
-import { Buffer } from "buffer/"
+import { Buffer } from "buffer"
 import newGetImageFunction from "../utils/getImage"
 import renderLoginComponent from "./login-ui"
 import defaultProfile from "./default-profile"

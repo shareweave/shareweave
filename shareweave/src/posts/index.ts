@@ -3,10 +3,8 @@ import ArDB from 'ardb'
 
 type tag = { name: string, values: string | string[] }
 interface Params {
-    max: number
-    cursor: string // skip results with cursor
-    fuzzySearch: string // search without exact match, not neccessarily available in MVP
-    tags: tag[] // arweave tags
+    max?: number
+    tags?: tag[] // arweave tags
 }
 
 export default class PostList {
@@ -15,7 +13,7 @@ export default class PostList {
     constructor(dataSet: string) {
         this.dataSet = dataSet
     }
-    async query(params: Params, cursor: string) {
+    async query(params: Params, cursor?: string) {
         // @ts-expect-error
         const ardb = new ArDB(window.Arweave.init({
             host: 'arweave.net',
