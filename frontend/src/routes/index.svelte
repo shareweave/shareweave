@@ -8,14 +8,14 @@
 	<title>Shareweave</title>
 </svelte:head>
 
-<div class="bg-background-darker px-4 pt-5 pb-36">
+<div class="bg-black px-4 pt-5 pb-36 text-white">
 	<div class="mx-auto max-w-prose text-center">
-		<img class="mx-auto" alt="logo" src="logo.svg" />
-		<h1 class="mb-2">Shareweave,</h1>
-		<h2 class="mb-12 font-normal text-secondary">content sharing with low code</h2>
+		<img class="mx-auto w-20" alt="logo" src="logo-unfilled.png" />
+		<h1 class="mb-2 text-5xl">Shareweave,</h1>
+		<h2 class="mb-12 font-normal">the easiest way to implement content sharing</h2>
 		<Button
 			href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-			class="text-bold py-4 font-semibold hover:border-brand-light"
+			class="text-bold border-none bg-gradient-to-r from-brand-bright to-brand !p-3 !px-8 font-semibold hover:shadow hover:shadow-brand"
 			primary={true}
 		>
 			Become a beta tester 🚀
@@ -24,14 +24,13 @@
 </div>
 
 <div class="mx-auto mt-4 max-w-prose -translate-y-32 px-4 text-center">
-	<img alt="People" src="people.png" />
+	<img alt="People" src="people.svg" />
 	<p>
 		Customize your decentralized community from the ground up. Fast, simple, and with all the
 		benefits of web3.
 	</p>
 
 	<b>Introducing the first social CMS.</b>
-
 	<h3 class="mt-6">✨ Easy APIs</h3>
 	<p>Ready to save months of development time?</p>
 	<img class="mx-auto" alt="Code" src="code.png" />
@@ -52,13 +51,14 @@
 		create the community your users want.
 	</p>
 
-	<h3 class="mt-6">🤗 100% Open Source</h3>
+	<h3 class="mt-12">🤗 100% Open Source</h3>
 	<p>
-		We want to give back to the community and avoid vendor lock-in, so the Shareweave platform will
-		be open source!
+		We want to give back to the community and avoid vendor lock-in, so the Shareweave platform is
+		open source!
+		<a href="https://github.com/shareweave">Check out the Code</a>
 	</p>
 
-	<img class="mx-auto mt-8" alt="Arweave" src="arweave.png" />
+	<img class="mx-auto mt-14" alt="Arweave" src="arweave.png" />
 	<h3 class="mt-1">Built to last on Arweave</h3>
 	<p class="-mb-16 ">
 		Arweave enables storage of documents and applications permanently, with no access or bandwidth
@@ -66,14 +66,16 @@
 	</p>
 </div>
 
-<div class="bg-brand px-4 pt-8 text-white">
+<div class="last-cta -mb-1 bg-gradient-to-b from-brand-bright to-brand px-4 pt-8 text-white">
 	<div class="mx-auto max-w-prose text-center">
 		<h1 class="mb-2">Sounds Cool? Get Early Access.</h1>
-		<p>If you want to create amazing communities, apply below to become a beta tester.</p>
+		<p class="font-semibold">
+			If you want to create amazing communities, apply below to become a beta tester.
+		</p>
 		<div class="mx-auto my-8 mb-14 max-w-fit">
 			<Button
 				href="https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com"
-				class="text-bold bg-yellow py-4 font-semibold"
+				class="text-bold border-none !bg-black !p-3 !px-8 font-semibold hover:shadow hover:brightness-125"
 				primary={true}
 			>
 				Become a beta tester 🚀
@@ -91,15 +93,16 @@
 		<footer>
 			<p class="p-2">Copyright (c) Shareweave 2022</p>
 			<p class="p-6 pt-0">
-				<a class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
-				<a class="mx-1" href="https://github.com/shareweave">Github</a>
+				<a target="_blank" class="mx-1" href="https://twitter.com/shareweave">Twitter</a> -
+				<a target="_blank" class="mx-1" href="https://github.com/shareweave">Github</a> -
+				<a target="_blank" class="mx-1" href="https://discord.gg/xD7EeYjgNc">Discord</a>
 			</p>
 		</footer>
 	</div>
 </div>
 
 <style>
-	.bg-brand a {
+	.last-cta a {
 		@apply font-semibold text-white;
 	}
 </style>
