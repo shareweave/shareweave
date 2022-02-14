@@ -5,7 +5,7 @@
     "shareweavejs"
   ],
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write --ignore-path .gitignore .",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=.. . && eslint --ignore-path .gitignore .",
     "test": "cd shareweavejs && yarn test",
     "test:watch": "cd shareweavejs && yarn test --watch",
