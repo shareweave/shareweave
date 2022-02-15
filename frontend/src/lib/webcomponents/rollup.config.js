@@ -43,12 +43,12 @@ export default {
 						   ? /.shadowRoot.innerHTML='<style>(.*)<\/style>'/
 						   : /.shadowRoot.innerHTML = "<style>(.*)<\/style>"/,
 				   )
-   
+
 				   if (matches && matches[1]) {
 					   const style = matches[1]
-   
+
 					   bundle[bundleName].code = code.replace(style, cssChunk)
-   
+
 				   } else {
 					   throw new Error(
 						   "Couldn't shadowRoot <style> tag for injecting styles"
