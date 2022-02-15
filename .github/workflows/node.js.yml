@@ -13,5 +13,5 @@ jobs:
           node-version: "16"
       - run: yarn install
       - run: yarn lint
-      - run: cd shareweavejs && yarn test
-      - run: cd shareweavejs && yarn build
+      - run: cd shareweave && yarn test
+      - run: cd shareweave && yarn build

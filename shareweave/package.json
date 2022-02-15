@@ -2,8 +2,8 @@
   "name": "shareweave",
   "version": "1.0.0",
   "description": "the js sdk for building with shareweave",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
+  "main": "build/src/index.js",
+  "typings": "build/src/index.d.ts",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
