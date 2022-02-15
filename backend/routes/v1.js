@@ -1,3 +1,5 @@
+import { uploadToArweave } from "../services/index.js";
+
 export async function v1(app, opts) {
   app.post("/", saveData);
 
@@ -6,4 +8,7 @@ export async function v1(app, opts) {
   });
 }
 
-async function saveData() {}
+async function saveData({ body }, reply) {
+  const transaction = await uploadToArweave(body);
+  return transaction;
+}

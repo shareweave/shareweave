@@ -8,6 +8,7 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "@bundlr-network/client": "^0.5.12",
     "dotenv": "^16.0.0",
     "fastify": "^3.27.1"
   },
