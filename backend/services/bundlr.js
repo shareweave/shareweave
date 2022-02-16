@@ -6,7 +6,7 @@ import { NETWORK } from "../config.js";
 
 const jwk = JSON.parse(readFileSync("wallet.json", "utf8"));
 
-const bundlr = new Bundlr.default(NETWORK, "arweave", jwk);
+export const bundlr = new Bundlr.default(NETWORK, "arweave", jwk);
 
 export async function uploadToArweave(data, mime = "text/plain") {
   const transaction = bundlr.createTransaction(data, {
