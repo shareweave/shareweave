@@ -2,6 +2,7 @@
   "private": "true",
   "workspaces": [
     "frontend",
+    "backend",
     "shareweavejs"
   ],
   "scripts": {
