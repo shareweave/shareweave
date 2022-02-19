@@ -11,7 +11,7 @@
 	const dangerStyle = 'bg-red !border-red hover:opacity-80 text-white';
 
 	const props = {
-		class: `my-2 mr-4 p-2 px-5 border-2 rounded-md border-brand no-link-style
+		class: `my-2 mr-4 p-2 px-5 border-2 rounded-xl border-brand no-link-style
 		${primary ? primaryStyle : ''} 
 		${!primary && !danger ? secondaryStyle : ''} 
 		${danger ? dangerStyle : ''}
