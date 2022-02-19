@@ -1,8 +1,7 @@
 {
-  "name": "shareweavejs",
+  "name": "shareweave",
   "version": "1.0.0",
-  "description": "the js library for building with shareweave",
-  "private": true,
+  "description": "the js sdk for building with shareweave",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
   "license": "MIT",
@@ -24,7 +23,9 @@
     "format": "prettier --ignore-path ../.gitignore --write --plugin-search-dir=.. ."
   },
   "dependencies": {
+    "ardb": "^1.1.9",
+    "arweave": "^1.10.23",
     "buffer": "^6.0.3",
-    "ethers": "^5.5.3"
+    "ethers": "^5.5.4"
   }
 }
