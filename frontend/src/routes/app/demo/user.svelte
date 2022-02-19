@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import Shareweave from 'shareweavejs';
+	import Shareweave from 'shareweave';
 
 	let user;
 	if (browser) {
@@ -55,4 +55,3 @@
 		{/if}
 	{/if}
 </div>
-<sharweave-login />

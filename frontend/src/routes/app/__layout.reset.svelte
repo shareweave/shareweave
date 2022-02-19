@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import AppHeader from '@components/AppHeader.svelte';
 	import NavBar from '@components/NavBar.svelte';
 </script>
