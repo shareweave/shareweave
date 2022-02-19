@@ -1,6 +1,6 @@
-import adapterIPFS from 'sveltejs-adapter-ipfs'
-import preprocess from 'svelte-preprocess'
-import path from 'path'
+import adapterIPFS from 'sveltejs-adapter-ipfs';
+import preprocess from 'svelte-preprocess';
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,6 +22,6 @@ const config = {
 			injectPagesInServiceWorker: true
 		})
 	}
-}
+};
 
-export default config
+export default config;

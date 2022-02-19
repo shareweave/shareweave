@@ -1,12 +1,7 @@
 {
-  "exclude": [
-    "test",
-    "build"
-  ],
+  "exclude": ["test", "build"],
   "compilerOptions": {
-    "types": [
-      "jest"
-    ],
+    "types": ["jest"],
     "declaration": true,
     "allowJs": true,
     "moduleResolution": "node",
