@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "ardb": "^1.1.9",
+    "arweave": "^1.10.23",
     "buffer": "^6.0.3",
     "ethers": "^5.5.4"
   }
