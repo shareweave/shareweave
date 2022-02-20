@@ -1,4 +1,4 @@
-import { uploadToArweave } from "../services/index.js";
+import { uploadToArweave } from "../services";
 
 import type {
   FastifyInstance,

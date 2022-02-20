@@ -2,7 +2,7 @@ import Bundlr from "@bundlr-network/client";
 
 import { readFileSync } from "node:fs";
 
-import { NETWORK } from "../config.js";
+import { NETWORK } from "../config";
 
 const jwk = JSON.parse(readFileSync("wallet.json", "utf8"));
 
