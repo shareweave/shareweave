@@ -1,39 +1,53 @@
-import PostList from "./index";
+import ArdbTransaction from "ardb/lib/models/transaction"
+import { toJS } from "../utils/tagTransform"
+import PostList from "./index"
 
 interface Meta {
-  author: `0x${string}`;
-  time: number;
+  author: string,
+  time: number,
 }
+type tags = { [key: string]: (string | null)[] }
 
 interface Reactions {
-  [key: string]: string;
+  [key: string]: string
 }
 
 export default class PostItem {
-  txID: string;
-  meta: Meta;
-  constructor(txID: string, meta: Meta) {
-    this.txID = txID;
-    this.meta = meta;
+  txID: string
+  meta?: Meta
+  tags: { [key: string]: (string | null)[] }
+  transaction: ArdbTransaction
+  display: boolean = true
+  constructor(transaction: ArdbTransaction) {
+    this.txID = transaction.id
+    this.tags = toJS(transaction.tags)
+    this.transaction = transaction
+    if (!this.tags.address || !this.tags.address[0]) {
+      this.display = false
+      return
+    }
+    else {
+      this.meta = {
+        time: transaction.block.timestamp * 1000,
+        author: this.tags.address[0],
+      }
+    }
   }
-  async comments() {
-    const data: PostList = new PostList(`reply-${this.txID}`);
-    return data;
+  comments() {
+    return new PostList(`reply-${this.txID}`)
   }
   async reactions() {
-    const data: Reactions = {};
-    return data;
+    const data: Reactions = {}
+    return data
   }
-  async comment() {}
-  async addReaction() {}
-  async tag(name: string) {
-    return ""; // value
-  }
+  async comment() { }
+  async addReaction() { }
+
   /* the actual post data */
   async data() {
     const data: unknown = await (
       await fetch(`https://arweave.net/${this.txID}`)
-    ).json();
-    return data;
+    ).json()
+    return data
   }
 }

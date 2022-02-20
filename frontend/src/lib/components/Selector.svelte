@@ -18,7 +18,7 @@
 			id={id.toString()}
 			{name}
 		/>
-		<label class="mx-1 rounded-3xl p-2 px-3" for={id.toString()}>{option}</label>
+		<label class="mr-3 rounded-3xl p-2 px-4" for={id.toString()}>{option}</label>
 	</span>
 {/each}
 

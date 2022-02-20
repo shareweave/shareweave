@@ -20,6 +20,7 @@
 		user = user;
 	}
 	let messageToSign = '';
+	globalThis.user = user;
 </script>
 
 <svelte:window on:load={login} />
