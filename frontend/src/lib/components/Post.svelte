@@ -5,8 +5,10 @@
 	import Card from './Card.svelte';
 	import { formatRelative } from 'date-fns';
 	import specialTags from 'shareweave/src/utils/specialTags';
-	console.log(post);
-	const data = post.tags;
+	let data = post.tags;
+	post.getData().then((postData) => {
+		data = { ...data, ...postData };
+	});
 </script>
 
 <Card>

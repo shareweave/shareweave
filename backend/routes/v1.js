@@ -1,14 +1,15 @@
-import { uploadToArweave } from "../services/index.js";
+import { uploadToArweave } from "../services/index.js"
 
 export async function v1(app, opts) {
-  app.post("/", saveData);
+  app.post("/", saveData)
 
   app.get("/", async (req, res) => {
-    return "Hello World!";
-  });
+    return "Hello World!"
+  })
 }
 
 async function saveData({ body }, reply) {
-  const transaction = await uploadToArweave(body);
-  return transaction;
-}
+  const post = JSON.parse(body)
+  const transaction = await uploadToArweave(post.body, post.tags)
+  return transaction
+} 

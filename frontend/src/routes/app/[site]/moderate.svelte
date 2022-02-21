@@ -2,8 +2,7 @@
 	import Selector from '@components/Selector.svelte';
 	import Post from '@components/Post.svelte';
 
-	import Shareweave from 'shareweave';
-	const shareweave = new Shareweave('shareweave-test');
+	import shareweave from '$lib/shareweave';
 	const posts = shareweave.posts;
 	globalThis.posts = posts;
 </script>
@@ -14,7 +13,7 @@
 
 <div class="mt-8">
 	{#await posts.query()}
-		waiting...
+		loading posts...
 	{:then postList}
 		{#each postList.data as post}
 			{#if post} <Post {post} /> {/if}

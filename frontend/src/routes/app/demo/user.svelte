@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import Shareweave from 'shareweave';
+	import shareweave, { isLoggedIn } from '$lib/shareweave';
+	import { onMount } from 'svelte';
 
-	let user;
-	if (browser) {
-		user = new Shareweave('').user;
-	}
+	let user = shareweave.user;
 	// globalThis.user = user;
 
 	let userNameField = '';
@@ -18,12 +16,14 @@
 		await user.login();
 		// then trigger reactivity
 		user = user;
+		isLoggedIn.set(true);
 	}
 	let messageToSign = '';
 	globalThis.user = user;
+	globalThis.login = login;
+	onMount(login);
 </script>
 
-<svelte:window on:load={login} />
 <div>
 	{#if browser}
 		<h1>User Demo</h1>

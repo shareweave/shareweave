@@ -4,6 +4,6 @@ export default [
     'Content-Type',
     'network',
     'algorithm',
-    'signature',
+    'proof',
     'dataset'
 ];
