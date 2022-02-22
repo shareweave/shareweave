@@ -14,7 +14,9 @@
 <Card>
 	<h2>{post.tags.title[0]}</h2>
 	<p class="text-secondary">
-		By {post.tags.address} posted {formatRelative(new Date(post.meta.time), new Date())}
+		By {post.tags.address} posted {post.meta.time === 0
+			? 'recently'
+			: formatRelative(new Date(post.meta.time), new Date())}
 	</p>
 	{#each Object.keys(data) as item}
 		{#if !specialTags.includes(item)}
