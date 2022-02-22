@@ -3,7 +3,7 @@ import PostList from "../src/posts"
 import UserAPI from "../src/user"
 
 describe("posts API", () => {
-  const posts = new PostList("shareweave-test", new UserAPI())
+  const posts = new PostList("shareweave-test")
   it("should create a list of posts", () => {
     expect(posts).toBeTruthy()
   })

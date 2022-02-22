@@ -4,6 +4,8 @@ import Arweave from "arweave"
 import ArdbTransaction from "ardb/lib/models/transaction"
 import UserAPI from "../user"
 import arweaveGraphql, { SortOrder, TagOperator } from 'arweave-graphql'
+import { subscribe } from "../store"
+import { Options } from "../options"
 
 type tag = { name: string; values: string | string[] }
 interface Params {
@@ -14,44 +16,33 @@ interface Params {
 export default class PostList {
   dataSet: string
   appName: string | undefined
-  #user: UserAPI
-  constructor(dataSet: string, userAPI: UserAPI) {
+  #options: Options = {}
+  constructor(dataSet: string) {
     this.dataSet = dataSet
-    this.#user = userAPI
+    subscribe(options => this.#options)
   }
-  async query(params: Params = {}, cursor?: string) {
+  async add() {
+    if (!this.#options.uploadServer) throw new Error("Upload server currently required")
+    fetch(this.#options.uploadServer)
+  }
+  async query(params: Params = {}, currentCursor?: string) {
     const transactionsResult = await arweaveGraphql('arweave.net/graphql').getTransactions({
+      after: currentCursor,
       tags: [
         { name: 'dataset', values: [this.dataSet] },
       ],
     })
-    /*  const ardb = new ArDB(
-        Arweave.init({
-          host: "arweave.net",
-          port: 443,
-          protocol: "https",
-        })
-      )
-      const result = await ardb
-        .search()
-        //.tags(params.tags || [])
-        .tag("dataset", this.dataSet)
-        .limit(params.max || 100)
-        .find() as ArdbTransaction[]
-      console.log(result) */
 
-    const c = ""
+    const newCursor = transactionsResult.transactions.edges[transactionsResult.transactions.edges.length - 1].cursor
     const data = transactionsResult.transactions.edges.map(item => {
-      const post = new PostItem(item.node, this.#user)
+      const post = new PostItem(item.node)
       if (post.display) return post
       else return null
     })
     return {
       data,
-      cursor: c,
-      queryAfter: (qParams: Params = params) => {
-        this.query(qParams, c)
-      },
+      cursor: newCursor,
+      queryAfter: (newParams: Params = params) => this.query(newParams, newCursor),
     }
   }
 }

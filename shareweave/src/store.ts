@@ -1,0 +1,17 @@
+import type { Options } from "./options"
+
+let options: Options = {}
+type listener = (data: Options) => void
+const listeners: listener[] = []
+
+export function set(data: Options) {
+    options = data
+    listeners.forEach(listener => listener(data))
+}
+export function subscribe(listener: listener) {
+    listener(options)
+    listeners.push(listener)
+}
+export function get(listener: listener) {
+    listener(options)
+}

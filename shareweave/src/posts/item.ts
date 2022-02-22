@@ -1,5 +1,7 @@
 import ArdbTransaction from "ardb/lib/models/transaction"
 import { GetTransactionsQuery } from "arweave-graphql"
+import { Options } from "../options"
+import { subscribe } from "../store"
 import UserAPI from "../user"
 import specialTags from "../utils/specialTags"
 import { toJS } from "../utils/tagTransform"
@@ -21,9 +23,9 @@ export default class PostItem {
   tags: tags
   transaction: transaction
   display: boolean = true
-  #user: UserAPI
-  constructor(transaction: transaction, userAPI: UserAPI) {
-    this.#user = userAPI
+  #options: Options = {}
+  constructor(transaction: transaction) {
+    subscribe(options => this.#options = options)
     this.txID = transaction.id
     this.tags = toJS(transaction.tags)
     this.transaction = transaction
@@ -43,7 +45,7 @@ export default class PostItem {
     }
   }
   comments() {
-    return new PostList(`reply-${this.txID}`, this.#user)
+    return new PostList(`reply-${this.txID}`)
   }
   async reactions() {
     const data: Reactions = {}
@@ -57,7 +59,7 @@ export default class PostItem {
     const { data, proof } = await (
       await fetch(`https://arweave.net/${this.txID}`)
     ).json()
-    if (this.#user.verify(JSON.stringify(data), proof) !== this.tags.address[0]) return { error: { message: 'The post is invalid' } }
+    if (this.#options.userAPI.verify(JSON.stringify(data), proof) !== this.tags.address[0]) return { error: { message: 'The post is invalid' } }
     return data
   }
 }
