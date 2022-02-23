@@ -11,3 +11,5 @@ imagine! Shareweave handles storage, search, moderation, administration and
 more, so devs can focus on the important parts.
 
 Made with sveltekit and typescript. Contributions welcome!
+
+[Sign up for the beta! 🚀](https://forms.zohopublic.com/shareweave/form/BetaTesterApplication/formperma/5_OJkUFacvNrSwNQGAqk-DQYQFG4cEGGAB-0qD-Gv8Q?referrername=shareweave.com)
