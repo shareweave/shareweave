@@ -10,18 +10,15 @@
 
 	let loggingIn = false;
 
-	async function login() {
+	onMount(async function login() {
 		loggingIn = true;
 		// wait for the  login
 		await user.login();
 		// then trigger reactivity
 		user = user;
 		isLoggedIn.set(true);
-	}
+	});
 	let messageToSign = '';
-	globalThis.user = user;
-	globalThis.login = login;
-	onMount(login);
 </script>
 
 <div>

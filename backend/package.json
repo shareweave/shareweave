@@ -10,7 +10,8 @@
   "dependencies": {
     "@bundlr-network/client": "^0.5.12",
     "dotenv": "^16.0.0",
-    "fastify": "^3.27.1"
+    "fastify": "^3.27.1",
+    "fastify-cors": "^6.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

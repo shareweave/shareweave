@@ -1,7 +1,6 @@
 <script lang="ts">
-	// import Shareweave from 'shareweave';
-	// const posts = new Shareweave('shareweave-demo-blog').posts;
-	// globalThis.posts = posts;
+	import shareweave from '$lib/shareweave';
+	globalThis.shareweave = shareweave;
 </script>
 
 <h1>Post Demo (incomplete)</h1>

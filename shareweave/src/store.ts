@@ -8,6 +8,10 @@ export function set(data: Options) {
     options = data
     listeners.forEach(listener => listener(data))
 }
+export function update(updater: (data: Options) => Options) {
+    options = updater(options)
+    listeners.forEach(listener => listener(options))
+}
 export function subscribe(listener: listener) {
     listener(options)
     listeners.push(listener)

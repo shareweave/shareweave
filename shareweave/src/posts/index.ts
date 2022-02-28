@@ -1,11 +1,8 @@
 import PostItem from "./item"
-import ArDB from "ardb"
-import Arweave from "arweave"
-import ArdbTransaction from "ardb/lib/models/transaction"
-import UserAPI from "../user"
 import arweaveGraphql, { SortOrder, TagOperator } from 'arweave-graphql'
 import { subscribe } from "../store"
 import { Options } from "../options"
+import add from "../protocol/add"
 
 type tag = { name: string; values: string | string[] }
 interface Params {
@@ -19,20 +16,24 @@ export default class PostList {
   #options: Options = {}
   constructor(dataSet: string) {
     this.dataSet = dataSet
-    subscribe(options => this.#options)
+    subscribe(options => {
+      console.log(options, this.#options)
+      this.#options = options
+    })
   }
-  async add() {
-    if (!this.#options.uploadServer) throw new Error("Upload server currently required")
-    fetch(this.#options.uploadServer)
+  async add(data: { tags: any[], body: any }) {
+    add([...data.tags, { name: 'action', value: 'post' }, { name: 'dataset', value: this.dataSet }], data.body)
   }
+
   async query(params: Params = {}, currentCursor?: string) {
     const transactionsResult = await arweaveGraphql('arweave.net/graphql').getTransactions({
       after: currentCursor,
       tags: [
         { name: 'dataset', values: [this.dataSet] },
+        { name: 'action', values: ['post', 'reply'] }
       ],
     })
-
+    console.log(transactionsResult)
     const newCursor = transactionsResult.transactions.edges[transactionsResult.transactions.edges.length - 1].cursor
     const data = transactionsResult.transactions.edges.map(item => {
       const post = new PostItem(item.node)

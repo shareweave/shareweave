@@ -11,15 +11,22 @@
 
 <Selector options={['Awaiting Moderation', 'All']} name="test" />
 
-<div class="mt-8">
-	{#await posts.query()}
-		loading posts...
-	{:then postList}
-		{#each postList.data as post}
-			{#if post} <Post {post} /> {/if}
-		{/each}
-	{:catch error}
-		<p>Whoops, an error occurred</p>
-		<code>{error}</code>
-	{/await}
-</div>
+{#await shareweave.user.login()}
+	logging in...
+{:then}
+	<div class="mt-8">
+		{#await posts.query()}
+			loading posts...
+		{:then postList}
+			{#each postList.data as post}
+				{#if post} <Post {post} /> {/if}
+			{/each}
+		{:catch error}
+			<p>Whoops, an error occurred when fetching posts</p>
+			<code>{error}</code>
+		{/await}
+	</div>
+{:catch error}
+	<p>Whoops, an error occurred when logging in</p>
+	<code>{error}</code>
+{/await}

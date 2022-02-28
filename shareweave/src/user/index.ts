@@ -1,6 +1,6 @@
 import { SelfID } from "@self.id/web"
 import { EthereumAuthProvider } from "@3id/connect"
-import { splitSignature, verifyMessage } from "ethers/lib/utils.js"
+import { splitSignature, verifyMessage, getAddress } from "ethers/lib/utils.js"
 import { Buffer } from "buffer"
 import newGetImageFunction from "../utils/getImage"
 import renderLoginComponent from "./login-ui"
@@ -8,7 +8,6 @@ import defaultProfile from "./default-profile"
 /* the schema for a basic profile, this is followed by self ID and should also be followed by
 our web2 login, see  https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic */
 import type { BasicProfile } from "@datamodels/identity-profile-basic"
-
 //if (!ethereum) throw new Error('ethereum not found, please install metamask')
 export default class UserAPI {
   // private variables for the class
@@ -36,6 +35,8 @@ export default class UserAPI {
     this.#selfID = self
     // debug
     // window.selfID = self
+    console.log(this.#profileData)
+    return
   }
   logout() {
     // clear any data saved locally, any auth stuff
@@ -54,7 +55,7 @@ export default class UserAPI {
     }
     return {
       ...this.#profileData,
-      address: this.#addresses[0],
+      address: getAddress(this.#addresses[0]),
       getImage: newGetImageFunction(this.#profileData.image),
       getBackground: newGetImageFunction(this.#profileData.image),
     }
@@ -89,6 +90,6 @@ export default class UserAPI {
   }
   verify(data: string, signature: string) {
     const splitSig = splitSignature(signature)
-    return verifyMessage(data, splitSig)
+    return getAddress(verifyMessage(data, splitSig))
   }
 }

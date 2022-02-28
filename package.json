@@ -10,7 +10,7 @@
     "test": "cd shareweave && yarn test",
     "test:watch": "cd shareweave && yarn test --watch",
     "build": "cd frontend && yarn build-webcomponents && cd ../shareweave && yarn build && cd ../frontend && svelte-kit build",
-    "dev": "cd frontend && yarn build-webcomponents:watch & cd shareweave && yarn build:watch & cd frontend && svelte-kit dev"
+    "dev": "cd frontend && yarn build-webcomponents:watch & cd shareweave && yarn build:watch & cd frontend && svelte-kit dev & cd backend && yarn dev"
   },
   "dependencies": {
     "ethers": "^5.5.3"

@@ -9,7 +9,7 @@ export async function v1(app, opts) {
 }
 
 async function saveData({ body }, reply) {
-  const post = JSON.parse(body)
+  const post = body
   const transaction = await uploadToArweave(post.body, post.tags)
   return transaction
 } 

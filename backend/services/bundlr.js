@@ -15,7 +15,6 @@ export async function uploadToArweave(data, tags, mime = "text/json") {
 
   await transaction.sign()
   await transaction.upload()
-  console.log(res)
   return {
     success: true,
     id: transaction.id
