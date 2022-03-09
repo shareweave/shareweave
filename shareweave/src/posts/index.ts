@@ -3,6 +3,7 @@ import arweaveGraphql, { SortOrder, TagOperator } from 'arweave-graphql'
 import { subscribe } from "../store"
 import { Options } from "../options"
 import add from "../protocol/add"
+import { user } from "../gun"
 
 type tag = { name: string; values: string | string[] }
 interface Params {
@@ -22,7 +23,7 @@ export default class PostList {
     })
   }
   async add(data: { tags: any[], body: any }) {
-    add([...data.tags, { name: 'action', value: 'post' }, { name: 'dataset', value: this.dataSet }], data.body)
+    user.get(this.dataSet).get('posts')
   }
 
   async query(params: Params = {}, currentCursor?: string) {
