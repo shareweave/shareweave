@@ -1,6 +1,6 @@
 import type { Options } from "./options"
 
-let options: Options = {}
+let options: Options
 type listener = (data: Options) => void
 const listeners: listener[] = []
 
@@ -13,9 +13,6 @@ export function update(updater: (data: Options) => Options) {
     listeners.forEach(listener => listener(options))
 }
 export function subscribe(listener: listener) {
-    listener(options)
+    if (options) listener(options)
     listeners.push(listener)
-}
-export function get(listener: listener) {
-    listener(options)
 }

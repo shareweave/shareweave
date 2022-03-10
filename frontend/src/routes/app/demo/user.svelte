@@ -19,6 +19,7 @@
 		isLoggedIn.set(true);
 	});
 	let messageToSign = '';
+	let messageToEncrypt = '';
 </script>
 
 <div>
@@ -39,6 +40,16 @@
 				}}
 			>
 				<input type="text" placeholder="name" bind:value={messageToSign} />
+				<button>Sign</button>
+			</form>
+			<p>Encrypt message:</p>
+			<form
+				on:submit|preventDefault={async () => {
+					const encryptedMessage = await user.encrypt(messageToEncrypt);
+					alert(`${encryptedMessage.ciphertext} ${await user.decrypt(encryptedMessage)}`);
+				}}
+			>
+				<input type="text" placeholder="name" bind:value={messageToEncrypt} />
 				<button>Sign</button>
 			</form>
 

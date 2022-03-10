@@ -4,6 +4,7 @@
 	export let label;
 	export let type = 'text';
 	export let value = '';
+	const onInput = (event) => (value = (event.target as HTMLInputElement).value);
 </script>
 
 <p class="my-1 text-left">
@@ -14,6 +15,7 @@
 		{type}
 		{placeholder}
 		{value}
+		on:change={onInput}
 	/>
 </p>
 

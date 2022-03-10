@@ -1,27 +1,42 @@
+import { Buffer } from "buffer/"
+// @ts-expect-error
+globalThis.Buffer = Buffer
+globalThis.process = globalThis.process || { env: '' }
 import { SelfID } from "@self.id/web"
 import { EthereumAuthProvider } from "@3id/connect"
-import { splitSignature, verifyMessage, getAddress } from "ethers/lib/utils.js"
-import { Buffer } from "buffer"
+import { splitSignature, verifyMessage, getAddress, hexlify, arrayify } from "ethers/lib/utils.js"
+
 import newGetImageFunction from "../utils/getImage"
 import renderLoginComponent from "./login-ui"
 import defaultProfile from "./default-profile"
 /* the schema for a basic profile, this is followed by self ID and should also be followed by
 our web2 login, see  https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic */
 import type { BasicProfile } from "@datamodels/identity-profile-basic"
-//if (!ethereum) throw new Error('ethereum not found, please install metamask')
+import { EthEncryptedData } from "@metamask/eth-sig-util"
+interface UserOptions {
+  onLogin?: (user: UserAPI) => void
+}
+
+function stringifiableToHex(value: any) {
+  return hexlify(Buffer.from(JSON.stringify(value)))
+}
 export default class UserAPI {
+  onLogin?: (user: UserAPI) => void
   // private variables for the class
   #selfID: SelfID | undefined
   #profileData: BasicProfile | null | undefined
   #addresses: [string] | undefined
   ethereum: any
+
+  constructor({ onLogin }: UserOptions) {
+    this.onLogin = onLogin || undefined
+  }
   // this function must not prompt the user if already logged in:
   async login() {
-    console.log('hello')
     this.ethereum = (await renderLoginComponent()).web3Provider
     // The following assumes there is an injected `ethereum` provider
     this.#addresses = (await this.ethereum.request({
-      method: "eth_requestAccounts",
+      method: "eth_accounts",
     })) as [string]
     const self = await SelfID.authenticate({
       authProvider: new EthereumAuthProvider(this.ethereum, this.#addresses[0]),
@@ -36,6 +51,7 @@ export default class UserAPI {
     // debug
     // window.selfID = self
     console.log(this.#profileData)
+    if (this.onLogin) await this.onLogin(this)
     return
   }
   logout() {
@@ -91,5 +107,26 @@ export default class UserAPI {
   verify(data: string, signature: string) {
     const splitSig = splitSignature(signature)
     return getAddress(verifyMessage(data, splitSig))
+  }
+  async encrypt(data: string) {
+    // doesn't work as a top level import?
+    const { encrypt } = await import("@metamask/eth-sig-util")
+    if (!(this.#profileData && this.#addresses)) {
+      throw new Error("User not logged in")
+    }
+    const signature = await this.sign(data)
+    const publicKey = await this.ethereum.request({
+      method: 'eth_getEncryptionPublicKey',
+      params: [this.#addresses[0]],
+    })
+    console.log(publicKey, signature, JSON.stringify({ sig: signature, data }))
+    return encrypt({ data, publicKey, version: 'x25519-xsalsa20-poly1305' })
+  }
+  async decrypt(encryptedData: EthEncryptedData) {
+    console.log(encryptedData.ciphertext, stringifiableToHex(encryptedData))
+    return await this.ethereum.request({
+      method: 'eth_decrypt',
+      params: [stringifiableToHex(encryptedData), this.ethereum.selectedAddress],
+    })
   }
 }

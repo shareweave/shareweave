@@ -3,15 +3,29 @@
 	import Button from './Button.svelte';
 	import TextInput from './TextInput.svelte';
 	import { createEventDispatcher } from 'svelte';
-
+	import { Magic } from 'magic-sdk';
 	const dispatch = createEventDispatcher();
-
+	console.log(import.meta.env.MAGIC_API_KEY);
+	const magic = new Magic('pk_live_27C349CE900303AA' as string, {
+		testMode: import.meta.env.DEV
+	});
+	globalThis.magic = magic;
 	let email = '';
-	function login() {
-		// @ts-expect-error metamask does not have types rn
-		if (!window.ethereum) throw new Error('window.ethereum required for now, install metamask');
+	let error;
+	async function loginWithEmail() {
+		try {
+			await magic.auth.loginWithMagicLink({ email });
+			dispatch('login', {
+				web3Provider: magic.rpcProvider
+			});
+		} catch (e) {
+			error = e;
+		}
+	}
+	async function login() {
+		if (!window.ethereum) alert("Metamask isn't installed");
+		await window.ethereum.request({ method: 'eth_requestAccounts' });
 		dispatch('login', {
-			// @ts-expect-error metamask does not have types rn
 			web3Provider: window.ethereum
 		});
 	}
@@ -36,12 +50,13 @@
 			No Account? <br />
 			Just enter your email or connect a crypto wallet below.
 		</p>
+		<p class="text-red">{error || ''}</p>
 		<div class="mx-auto my-8 max-w-fit">
-			<form on:submit|preventDefault={() => alert('not yet implemented')}>
-				<TextInput placeholder="you@example.com" label="Email" name="email" value={email} />
+			<form on:submit|preventDefault={loginWithEmail}>
+				<TextInput placeholder="you@example.com" label="Email" name="email" bind:value={email} />
 				<Button fullWidth={true} primary={true}>Login</Button>
 			</form>
-			<Button fullWidth={true} on:click={login}>Login With Crypto</Button>
+			<Button fullWidth={true} on:click={login}>Login With MetaMask</Button>
 		</div>
 	</div>
 </div>

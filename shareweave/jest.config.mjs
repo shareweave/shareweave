@@ -6,5 +6,10 @@ export default {
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.json',
+    }
+  },
   testEnvironment: "./test/custom-environment.mjs",
-};
+}
