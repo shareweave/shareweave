@@ -1,28 +1,27 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import Shareweave from 'shareweave';
+	import shareweave, { isLoggedIn } from '$lib/shareweave';
+	import { onMount } from 'svelte';
 
-	let user;
-	if (browser) {
-		user = new Shareweave('').user;
-	}
+	let user = shareweave.user;
 	// globalThis.user = user;
 
 	let userNameField = '';
 
 	let loggingIn = false;
 
-	async function login() {
+	onMount(async function login() {
 		loggingIn = true;
 		// wait for the  login
 		await user.login();
 		// then trigger reactivity
 		user = user;
-	}
+		isLoggedIn.set(true);
+	});
 	let messageToSign = '';
+	let messageToEncrypt = '';
 </script>
 
-<svelte:window on:load={login} />
 <div>
 	{#if browser}
 		<h1>User Demo</h1>
@@ -41,6 +40,16 @@
 				}}
 			>
 				<input type="text" placeholder="name" bind:value={messageToSign} />
+				<button>Sign</button>
+			</form>
+			<p>Encrypt message:</p>
+			<form
+				on:submit|preventDefault={async () => {
+					const encryptedMessage = await user.encrypt(messageToEncrypt);
+					alert(`${encryptedMessage.ciphertext} ${await user.decrypt(encryptedMessage)}`);
+				}}
+			>
+				<input type="text" placeholder="name" bind:value={messageToEncrypt} />
 				<button>Sign</button>
 			</form>
 

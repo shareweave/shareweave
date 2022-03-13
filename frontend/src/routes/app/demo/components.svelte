@@ -3,15 +3,12 @@
 	import Button from '@components/Button.svelte';
 	import Card from '@components/Card.svelte';
 	import Selector from '@components/Selector.svelte';
-	import { getContext } from 'svelte';
 	import Login from '@components/Login.svelte';
 	import Post from '@components/Post.svelte';
-	const { open } = getContext('simple-modal');
-	const showLogin = () => open(Login, { message: "It's a modal!" });
 </script>
 
 <h1>Components Demo</h1>
-<Button primary={true} on:click={showLogin}>Login</Button>
+<Button primary={true}>Login</Button>
 <Button danger={true} on:click={() => alert('dangerous button')}>Dangerous</Button>
 <Button on:click={() => alert('secondary button')}>Secondary Button</Button>
 

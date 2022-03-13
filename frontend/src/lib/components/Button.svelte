@@ -6,12 +6,12 @@
 	let className = '';
 	export { className as class };
 
-	const primaryStyle = 'bg-brand hover:bg-brand-light text-white';
-	const secondaryStyle = 'text-brand hover:bg-background-darker';
-	const dangerStyle = 'bg-red !border-red hover:opacity-80 text-white';
+	const primaryStyle = 'bg-brand-blue hover:bg-brand-blue text-white';
+	const secondaryStyle = 'text-brand-blue hover:bg-background-darker';
+	const dangerStyle = 'bg-red !border-red text-white';
 
 	const props = {
-		class: `my-2 mr-4 p-2 px-5 border-2 rounded-xl border-brand no-link-style
+		class: `hover:opacity-80 my-2 mr-4 p-2 px-5 border-2 rounded-xl border-brand-blue no-link-style
 		${primary ? primaryStyle : ''} 
 		${!primary && !danger ? secondaryStyle : ''} 
 		${danger ? dangerStyle : ''}

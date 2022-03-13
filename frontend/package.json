@@ -66,7 +66,9 @@
 		"@datamodels/identity-profile-basic": "^0.1.2",
 		"@self.id/web": "^0.2.0",
 		"buffer": "^6.0.3",
+		"date-fns": "^2.28.0",
 		"dids": "^2.4.3",
+		"magic-sdk": "^8.0.1",
 		"sveltejs-adapter-ipfs": "^0.2.1"
 	}
 }

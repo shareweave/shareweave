@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-
+	import shareweave, { isLoggedIn } from '$lib/shareweave';
+	globalThis.hshareweave = shareweave;
 	export let navItems = [
 		{
 			text: 'Dashboard',
@@ -34,12 +35,16 @@
 	</div>
 	<div class="flex-grow" />
 	<div class="grid auto-rows-min grid-cols-[3rem_1fr] gap-x-2">
-		<img
-			alt="Avatar"
-			class="row-span-2 h-full w-full rounded object-fill"
-			src="https://images.unsplash.com/photo-1643967377110-c17a5ddf14f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-		/>
-		<span class="text-lg font-medium">Ian</span>
-		<span class="text-secondary">ian@shareweave.com</span>
+		{#if $isLoggedIn}
+			<img
+				alt="Avatar"
+				class="row-span-2 h-full w-full rounded object-fill"
+				src={shareweave.user.profile.getImage(0, 0).httpSrc}
+			/>
+			<span class="text-lg font-medium">{shareweave.user.profile.name}</span>
+			<span class="text-secondary w-32 overflow-hidden text-ellipsis">
+				{shareweave.user.profile.address}
+			</span>
+		{/if}
 	</div>
 </header>
