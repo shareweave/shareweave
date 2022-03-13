@@ -1,4 +1,4 @@
-import { bundlr } from "../services/index.js";
+import { bundlr } from "../services";
 
 async function main() {
   const balance = await bundlr.getLoadedBalance();
