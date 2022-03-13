@@ -29,52 +29,28 @@ function fetchIndexFromGun(index: keys) {
 }
 
 export async function fetchIndex(index: keys) {
-    return new Promise((finalResolve, reject) => {
-        fetchIndexFromGun(index).then(data => {
-            new Promise<index>(resolve => setInterval(() => {
-                if (data) resolve(data)
-            }, 5)).then(data => {
-                console.log('fetchindex', data)
-                // we have an object with times as keys, but we don't need the times rn, just get values
-                console.log(Object.values(data), Object.values(data)
-                    // now we have an array of objects with the '#' property containing one or more hash/data pairs
-                    .map(item => Object.values(item)[0]))
-                const result: string[] = Object.values(data)
-                    // now we have an array of objects with the '#' property containing one or more hash/data pairs
-                    .map(item => Object.values(item)[0])
-                    // now we have an array with objects containing one or more hash/value pairs, we'll turn it into an array with arrays of values
-                    .map(item => Object.values(item))
-                    // now flatten it into an array of values
-                    .reduce((previousResult, item) => {
-                        console.log(item)
-                        item.forEach(item => previousResult.push(item))
-                        return previousResult
-                    }, [])
-                console.log('result', result)
-                finalResolve(result)
-            })
-        })
+    const data = await fetchIndexFromGun(index)
+    await new Promise<index>(resolve => {
+        const interval = setInterval(() => {
+            clearInterval(interval)
+            if (data) resolve(data)
+        }, 50)
     })
-    //await (await fetchIndexFromGun(index))
-
-
-    /* let result: string[] = []
-     const items = await Object.values(data)
-     await console.log('items', items) */
-
-
-
-    /*    for (let [index, item] of items.entries()) {
-            console.log('list', index, item)
-            for (let piece of Object.values(item)) {
-                console.log(piece, item, index, 'piece')
-                if (!(typeof piece === 'string')) {
-                    for (let item of Object.entries(piece)) {
-                        await result.push(item[1])
-                    }
+    console.log('fetchindex', data)
+    let result: string[] = []
+    const items = await Object.values(data)
+    await console.log('items', items, Object.values(data), Object.keys(data), JSON.stringify(data))
+    for (let [index, item] of items.entries()) {
+        console.log('list', index, item)
+        for (let piece of Object.values(item)) {
+            console.log(piece, item, index, 'piece')
+            if (!(typeof piece === 'string')) {
+                for (let item of Object.entries(piece)) {
+                    await result.push(item[1])
                 }
             }
         }
-        console.log('result', result)
-        return result*/
+    }
+    console.log('result', result)
+    return result
 }

@@ -7,7 +7,7 @@
 	const onInput = (event) => (value = (event.target as HTMLInputElement).value);
 </script>
 
-<p class="my-1 text-left">
+<p class="my-3 text-left">
 	<label class="mb-1 block text-sm" for={name}>{label}</label>
 	<input
 		class="block rounded-xl border-2  border-black p-3 text-black"

@@ -1,7 +1,12 @@
 // @ts-expect-error svelte client-side component, should add types later
 import { Login } from "frontend/src/lib/webcomponents/build/index.js"
 interface LoginResult {
-  web3Provider: any
+  web3Provider: any,
+  email: string,
+  username: string,
+  password: string,
+  signUp: boolean,
+  done: () => void
 }
 export default function renderLoginComponent(): Promise<LoginResult> {
   return new Promise((resolve, reject) => {
@@ -18,8 +23,12 @@ export default function renderLoginComponent(): Promise<LoginResult> {
       let loggedIn
       const callback = (event: { detail: any }) => {
         loggedIn = true
-        loginModal.$set({ show: false })
-        resolve(event.detail)
+        resolve({
+          ...event.detail,
+          done() {
+            loginModal.$set({ show: false })
+          }
+        })
       }
       const off = loginModal.$on("login", callback)
     }

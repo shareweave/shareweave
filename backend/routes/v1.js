@@ -1,7 +1,8 @@
-import { uploadToArweave } from "../services/index.js"
-
+import { index } from "../services/gun.js"
 export async function v1(app, opts) {
-  app.post("/", saveData)
+  app.post("/", (req, res) => {
+
+  })
 
   app.get("/", async (req, res) => {
     return "Hello World!"

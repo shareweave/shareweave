@@ -1,5 +1,5 @@
-import { env } from "node:process";
+import { env } from "node:process"
 
-import "dotenv/config";
+import "dotenv/config"
 
-export const { PORT, NETWORK } = env;
+export const { PORT, NETWORK, GUN_PRIV } = env
