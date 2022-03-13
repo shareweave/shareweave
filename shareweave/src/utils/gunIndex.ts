@@ -28,30 +28,41 @@ function fetchIndexFromGun(index: keys) {
     })
 }
 
-export async function fetchIndex(index: keys): Promise<string[]> {
-    const data = await fetchIndexFromGun(index)
-    await new Promise<void>(resolve => setInterval(() => {
-        if (data) resolve()
-    }, 5))
+export async function fetchIndex(index: keys) {
+    return new Promise((finalResolve, reject) => {
+        fetchIndexFromGun(index).then(data => {
+            new Promise<index>(resolve => setInterval(() => {
+                if (data) resolve(data)
+            }, 5)).then(data => {
+                console.log('fetchindex', data)
+                // we have an object with times as keys, but we don't need the times rn, just get values
+                console.log(Object.values(data), Object.values(data)
+                    // now we have an array of objects with the '#' property containing one or more hash/data pairs
+                    .map(item => Object.values(item)[0]))
+                const result: string[] = Object.values(data)
+                    // now we have an array of objects with the '#' property containing one or more hash/data pairs
+                    .map(item => Object.values(item)[0])
+                    // now we have an array with objects containing one or more hash/value pairs, we'll turn it into an array with arrays of values
+                    .map(item => Object.values(item))
+                    // now flatten it into an array of values
+                    .reduce((previousResult, item) => {
+                        console.log(item)
+                        item.forEach(item => previousResult.push(item))
+                        return previousResult
+                    }, [])
+                console.log('result', result)
+                finalResolve(result)
+            })
+        })
+    })
     //await (await fetchIndexFromGun(index))
 
 
-    await console.log('fetchindex', data)
     /* let result: string[] = []
      const items = await Object.values(data)
      await console.log('items', items) */
 
-    // we have an object with times as keys, but we don't need the times rn, just get values
-    Object.values(data)
-        // now we have an array of objects with the '#' property containing one or more hash/data pairs
-        .map(item => Object.values(item)[0])
-        // now we have an array with objects containing one or more hash/value pairs, we'll turn it into an array with arrays of values
-        .map(item => Object.values(item))
-        // now flatten it into an array values
-        .reduce((previousResult, item) => {
-            console.log(item)
-            item.forEach(item => previousResult.push(item))
-        }, [])
+
 
     /*    for (let [index, item] of items.entries()) {
             console.log('list', index, item)
