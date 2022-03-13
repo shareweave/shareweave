@@ -31,6 +31,6 @@
     "buffer": "^6.0.3",
     "eth-crypto": "^2.2.0",
     "ethers": "^5.5.4",
-    "gun": "^0.2020.1235"
+    "gun": "https://github.com/amark/gun.git"
   }
 }

@@ -4,7 +4,7 @@
 
 	import shareweave from '$lib/shareweave';
 	const posts = shareweave.posts;
-	globalThis.posts = posts;
+	globalThis.shareweave = shareweave;
 </script>
 
 <h1>Moderation</h1>
@@ -18,7 +18,7 @@
 		{#await posts.query()}
 			loading posts...
 		{:then postList}
-			{#each postList.data as post}
+			{#each postList as post}
 				{#if post} <Post {post} /> {/if}
 			{/each}
 		{:catch error}

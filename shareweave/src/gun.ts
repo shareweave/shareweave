@@ -1,17 +1,20 @@
-import type { IGunChainReference } from 'gun/types/chain'
-import { IGunStaticSEA } from 'gun/types/static/sea'
+import type { ISEA } from 'gun'
 import Gun from 'gun/gun'
 import 'gun/lib/load'
+import 'gun/lib/open'
 import 'gun/lib/then.js'
 // @ts-expect-error no types // only works on cdn wtf
 import ImportSEA from 'https://cdn.skypack.dev/gun/sea'
 import { subscribe } from './store'
 
-interface CustomGunChainReference<DataType = Record<string, any>, ReferenceKey = any, IsTop extends 'pre_root' | 'root' | false = false> extends IGunChainReference<DataType, ReferenceKey, IsTop> {
-    hashedPut: (data: unknown) => void
-}
-(Gun.chain as CustomGunChainReference).hashedPut = function (data: unknown) {
-
+type user = {
+    app: {
+        [key: string]: {
+            [K in keys]: any
+        }
+    },
+    secret: string,
+    proof: string,
 }
 type index = {
     [key: `${any}T${any}`]: {
@@ -21,21 +24,22 @@ type index = {
         }
     }
 }
-interface Indexes {
-    users: index,
-    [key: `address-${string}`]: index
-}
+type PostIndex = `posts` | `replies-${string}`
+
+type Indexes = Record<`address-${string}` | PostIndex | 'users', index>
 interface AppState {
-    // indexes under the `dataset`
-    [key: string]: Indexes
+    // an app can contain data submitted by a user, and an index that points to these items
+    // "indexes" is stored under the appname, which is what key: string represents here
+    // user is stored under the ID, which is what key: string represents here
+    [key: string]: Indexes & user
 }
 type keys = keyof Indexes
 
-const gun = new Gun<AppState>() as CustomGunChainReference<AppState, any, "root">
-const SEA: IGunStaticSEA = ImportSEA
+const gun = new Gun<AppState>()
+const SEA: ISEA = ImportSEA
 const user = gun.user()
 console.log(gun)
-export { gun, user, SEA, CustomGunChainReference, keys }
+export { gun, user, SEA, keys, index, Indexes }
 subscribe(options => {
     console.log('changed, peers', options.gunOptions)
     gun.opt(options.gunOptions)

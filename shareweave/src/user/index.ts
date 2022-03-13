@@ -13,6 +13,7 @@ import defaultProfile from "./default-profile"
 our web2 login, see  https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic */
 import type { BasicProfile } from "@datamodels/identity-profile-basic"
 import { EthEncryptedData } from "@metamask/eth-sig-util"
+import { user } from "../gun"
 interface UserOptions {
   onLogin?: (user: UserAPI) => void
 }
@@ -33,6 +34,7 @@ export default class UserAPI {
   }
   // this function must not prompt the user if already logged in:
   async login() {
+    if (user.is) return
     this.ethereum = (await renderLoginComponent()).web3Provider
     // The following assumes there is an injected `ethereum` provider
     this.#addresses = (await this.ethereum.request({
@@ -47,7 +49,7 @@ export default class UserAPI {
       ...defaultProfile,
       ...(await self.get("basicProfile")),
     }
-    this.#selfID = self
+    //  this.#selfID = self
     // debug
     // window.selfID = self
     console.log(this.#profileData)

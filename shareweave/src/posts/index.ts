@@ -1,50 +1,56 @@
 import PostItem from "./item"
-import arweaveGraphql, { SortOrder, TagOperator } from 'arweave-graphql'
 import { subscribe } from "../store"
 import { Options } from "../options"
-import add from "../protocol/add"
-import { user } from "../gun"
+import { gun, Indexes, user } from "../gun"
+import getCurrentDateString from "../utils/date"
+import { index, fetchIndex } from "../utils/gunIndex"
 
 type tag = { name: string; values: string | string[] }
 interface Params {
   max?: number
   tags?: tag[] // arweave tags
 }
-
-export default class PostList {
-  dataSet: string
-  appName: string | undefined
+interface Base {
+  reply?: never
+}
+export default class PostList<DataType = { [key: string]: string }> {
+  dataSet: keyof Indexes
   #options: Options = {}
-  constructor(dataSet: string) {
+  constructor(dataSet: keyof Indexes) {
     this.dataSet = dataSet
     subscribe(options => {
       console.log(options, this.#options)
       this.#options = options
     })
   }
-  async add(data: { tags: any[], body: any }) {
-    user.get(this.dataSet).get('posts')
+  add(data: Omit<DataType, 'reply'>, tags: string[] = []) {
+    return new Promise((resolve, reject) => {
+      if (!this.#options.appName) throw new Error("not init'ed")
+      if (!user.is) throw new Error("not logged in")
+      const item = gun.get('~' + user.is.pub).get('app').get(this.#options.appName).get(this.dataSet).get(getCurrentDateString()).put(data, async ack => {
+        // @ts-expect-error gun isn't typed correctly
+        if (ack.err) reject(ack.err)
+        console.log(item, this.dataSet)
+        await index(item, [this.dataSet])
+        resolve(ack)
+      })
+    })
   }
-
-  async query(params: Params = {}, currentCursor?: string) {
-    const transactionsResult = await arweaveGraphql('arweave.net/graphql').getTransactions({
-      after: currentCursor,
-      tags: [
-        { name: 'dataset', values: [this.dataSet] },
-        { name: 'action', values: ['post', 'reply'] }
-      ],
+  attachListener(listener: () => void) {
+    if (!this.#options.appName) throw new Error("appname not initialized")
+    let hasRunFirst = false
+    gun.get(this.#options.appName).get(this.dataSet).on(() => {
+      if (hasRunFirst) listener()
+      hasRunFirst = true
     })
-    console.log(transactionsResult)
-    const newCursor = transactionsResult.transactions.edges[transactionsResult.transactions.edges.length - 1].cursor
-    const data = transactionsResult.transactions.edges.map(item => {
-      const post = new PostItem(item.node)
-      if (post.display) return post
-      else return null
-    })
-    return {
-      data,
-      cursor: newCursor,
-      queryAfter: (newParams: Params = params) => this.query(newParams, newCursor),
+  }
+  async query(params?: never) {
+    const result = []
+    const index = await fetchIndex(this.dataSet)
+    console.log(index, 'index postlist')
+    for (const item of index) {
+      if (item) result.push(new PostItem<DataType>(item))
     }
+    return result
   }
 }
